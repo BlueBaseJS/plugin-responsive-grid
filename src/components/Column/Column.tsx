@@ -14,7 +14,7 @@ export interface ColumnProps extends ViewProps {
 	/**
 	 * The width of the column on extra small screen.
 	 */
-	size: number;
+	size?: number;
 
 	/**
 	 * The number of columns to offset on extra small screen.
@@ -169,7 +169,7 @@ const getColumnWidth = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnP
 			}
 	}
 
-	return toPercent(props.size / rowSize);
+	return toPercent(getSize(rowSize, props) / rowSize);
 };
 
 const getColumnOffset = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnProps) => {
@@ -204,4 +204,27 @@ const getColumnOffset = (screenSize: SCREEN_SIZE, rowSize: number, props: Column
 			}
 	}
 	return (props.offset) ? toPercent(props.offset / rowSize) : 0;
+};
+
+const getSize = (rowSize: number, props: ColumnProps) => {
+	if (props.size) {
+		return props.size;
+	}
+	if (props.xs) {
+		return props.xs;
+	}
+	if (props.sm) {
+		return props.sm;
+	}
+	if (props.md) {
+		return props.md;
+	}
+	if (props.lg) {
+		return props.lg;
+	}
+	if (props.xl) {
+		return props.xl;
+	}
+
+	return rowSize;
 };

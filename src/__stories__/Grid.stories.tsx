@@ -16,12 +16,12 @@ stories
 	<View>
 		<Container style={{ backgroundColor: 'rgba(0,0,0,.12)' }}>
 			<Row rowSize={12}>
-				<Column size={6} sm={6} md={4} lg={3} style={{ backgroundColor: 'yellow' }}>
+				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'yellow' }}>
 					<Text>
 						First Column
 					</Text>
 				</Column>
-				<Column size={6} sm={6} md={4} lg={3} style={{ backgroundColor: 'green' }}>
+				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'green' }}>
 					<Text>
 						Second Column
 					</Text>

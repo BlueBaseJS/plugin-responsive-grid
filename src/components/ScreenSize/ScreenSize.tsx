@@ -3,7 +3,7 @@ import React, { createContext } from 'react';
 import { SCREEN_SIZE } from '../../constants';
 import { getScreenSizeFromWidth } from '../../helpers';
 
-const initialSize = getScreenSizeFromWidth(Dimensions.get('screen').width);
+const initialSize = getScreenSizeFromWidth(Dimensions.get('window').width);
 
 export const ScreenSizeContext: React.Context<SCREEN_SIZE> = createContext(initialSize);
 
@@ -20,6 +20,13 @@ export class ScreenSizeProvider extends React.Component<{}, ScreenSizeProviderSt
 		size: initialSize
 	};
 
+	constructor(props: {}) {
+		super(props);
+
+    // This binding is necessary to make `this` work in the callback
+		this.dimensionHandler = this.dimensionHandler.bind(this);
+	}
+
 	componentDidMount() {
 		Dimensions.addEventListener('change', this.dimensionHandler);
 	}
@@ -28,9 +35,10 @@ export class ScreenSizeProvider extends React.Component<{}, ScreenSizeProviderSt
 		Dimensions.removeEventListener('change', this.dimensionHandler);
 	}
 
-	dimensionHandler({ screen }: { window: ScaledSize; screen: ScaledSize }) {
+	dimensionHandler({ window }: { window: ScaledSize; screen: ScaledSize }) {
 
-		const size = getScreenSizeFromWidth(screen.width);
+		// debugger;
+		const size = getScreenSizeFromWidth(window.width);
 
 		if (size !== this.state.size) {
 			this.setState({ size });

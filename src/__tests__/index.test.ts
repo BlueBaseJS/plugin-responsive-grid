@@ -5,5 +5,5 @@ test('Plugin should be correctly registered', async () => {
 	const BB = new BlueBase();
 	await BB.Plugins.register(Plugin);
 
-	expect(BB.Plugins.has('@bluebase/plugin-responsive-grid')).toBeTruthy();
+	expect(BB.Plugins.has('plugin-responsive-grid')).toBeTruthy();
 });

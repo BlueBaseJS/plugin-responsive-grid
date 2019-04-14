@@ -4,6 +4,11 @@ import React from 'react';
 import { RowConsumer } from '../Row';
 import { SCREEN_SIZE } from '../../constants';
 import { ScreenSizeConsumer } from '../ScreenSize';
+// import { Theme } from '@bluebase/core';
+
+// export interface ColumnStyles {
+// 	root: StyleProp<ViewStyle>;
+// }
 
 export interface ColumnProps extends ViewProps {
 	/**
@@ -90,6 +95,8 @@ export interface ColumnProps extends ViewProps {
 	 * Hide this column on extra large screen.
 	 */
 	xlHidden?: boolean;
+
+	// styles?: Partial<ColumnStyles>;
 }
 
 export const Column = ({ style, ...rest }: ColumnProps) => (
@@ -100,9 +107,11 @@ export const Column = ({ style, ...rest }: ColumnProps) => (
 
 			const width = getColumnWidth(screenSize, rowSize, rest);
 			const marginLeft = getColumnOffset(screenSize, rowSize, rest);
+			// const styles = _styles as ColumnStyles;
 
-			const styles: Array<StyleProp<ViewStyle>> = [
+			const stylesheet: Array<StyleProp<ViewStyle>> = [
 				style,
+				// styles.root,
 				{
 					flexDirection: 'column',
 					marginLeft,
@@ -110,12 +119,21 @@ export const Column = ({ style, ...rest }: ColumnProps) => (
 				}
 			];
 
-			return (<View {...rest} style={styles} />);
+			return (
+				<View {...rest} style={stylesheet} />
+			);
 		}}
 		</RowConsumer>
 	)}
 	</ScreenSizeConsumer>
 );
+
+// Column.defaultStyles = (_theme: Theme): ColumnStyles => ({
+// 	root: {
+// 		flexDirection: 'column',
+// 		// paddingHorizontal: theme.spacing.unit,
+// 	}
+// });
 
 const toPercent = (num: number) => (num * 100) + '%';
 

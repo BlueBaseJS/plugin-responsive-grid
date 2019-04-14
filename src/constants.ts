@@ -1,3 +1,4 @@
+// tslint:disable: object-literal-sort-keys
 
 export type SCREEN_SIZE = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -8,7 +9,6 @@ export const BREAKPOINTS = {
 	lg: 1200
 };
 
-// tslint:disable: object-literal-sort-keys
 export const MAX_CONTAINER_WIDTH = {
 	xs: '100%',
 	sm: 540,

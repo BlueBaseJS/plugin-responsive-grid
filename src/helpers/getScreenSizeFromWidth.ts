@@ -1,4 +1,4 @@
-import { BREAKPOINTS, SCREEN_SIZE } from './constants';
+import { BREAKPOINTS, SCREEN_SIZE } from '../constants';
 
 export const getScreenSizeFromWidth = (width: number): SCREEN_SIZE => {
 

@@ -1,5 +1,5 @@
+import { Platform, StyleProp, ViewStyle } from 'react-native';
 import React, { createContext } from 'react';
-import { StyleProp, ViewStyle, Platform } from 'react-native';
 import { View, ViewProps } from '@bluebase/components';
 import { ScreenSizeConsumer } from '../ScreenSize';
 import { isHidden } from '../../helpers';

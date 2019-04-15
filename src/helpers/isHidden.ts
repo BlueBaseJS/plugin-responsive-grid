@@ -1,14 +1,17 @@
 import { SCREEN_SIZE } from '../constants';
 
 export interface HiddenOptions {
-	xsHidden?: boolean,
-	smHidden?: boolean,
-	mdHidden?: boolean,
-	lgHidden?: boolean,
-	xlHidden?: boolean,
+	xsHidden?: boolean;
+	smHidden?: boolean;
+	mdHidden?: boolean;
+	lgHidden?: boolean;
+	xlHidden?: boolean;
 }
 
-export const isHidden = (screenSize: SCREEN_SIZE, props: HiddenOptions & { [key: string]: any }) => {
+export const isHidden = (
+	screenSize: SCREEN_SIZE,
+	props: HiddenOptions & { [key: string]: any }
+) => {
 	switch (screenSize) {
 		case 'sm':
 			return !!props.smHidden;

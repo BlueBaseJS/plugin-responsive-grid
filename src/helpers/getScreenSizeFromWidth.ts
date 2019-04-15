@@ -1,7 +1,6 @@
 import { BREAKPOINTS, SCREEN_SIZE } from '../constants';
 
 export const getScreenSizeFromWidth = (width: number): SCREEN_SIZE => {
-
 	if (width < BREAKPOINTS.xs) {
 		return 'xs';
 	} else if (width < BREAKPOINTS.sm) {

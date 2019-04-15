@@ -1,15 +1,5 @@
-import {
-	BlueBase,
-	BootOptions,
-	createPlugin
-} from '@bluebase/core';
-import {
-	Column,
-	Container,
-	ResponsiveLayout,
-	Row,
-	ScreenSizeConsumer,
-} from './components';
+import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
+import { Column, Container, ResponsiveLayout, Row, ScreenSizeConsumer } from './components';
 import { withScreenSizeProvider } from './withScreenSizeProvider';
 
 export default createPlugin({

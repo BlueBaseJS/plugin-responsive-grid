@@ -7,7 +7,10 @@ const initialSize = getScreenSizeFromWidth(Dimensions.get('window').width);
 
 export const ScreenSizeContext: React.Context<SCREEN_SIZE> = createContext(initialSize);
 
-export const ScreenSizeConsumer = ScreenSizeContext.Consumer;
+// FIXME: For some react add this component as is to the plugin messes up build
+// export const ScreenSizeConsumer = ScreenSizeContext.Consumer;
+export const ScreenSizeConsumer = (props: { children: (size: SCREEN_SIZE) => React.ReactNode }) =>
+<ScreenSizeContext.Consumer {...props} />;
 
 
 export interface ScreenSizeProviderState {

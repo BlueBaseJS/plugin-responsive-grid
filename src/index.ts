@@ -6,8 +6,9 @@ import {
 import {
 	Column,
 	Container,
+	ResponsiveLayout,
 	Row,
-	// ScreenSizeConsumer,
+	ScreenSizeConsumer,
 } from './components';
 import { withScreenSizeProvider } from './withScreenSizeProvider';
 
@@ -20,8 +21,9 @@ export default createPlugin({
 	components: {
 		Column,
 		Container,
+		ResponsiveLayout,
 		Row,
-		// ScreenSizeConsumer,
+		ScreenSizeConsumer,
 	},
 
 	filters: {

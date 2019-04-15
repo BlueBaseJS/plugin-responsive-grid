@@ -26,6 +26,16 @@ stories
 						Second Column
 					</Text>
 				</Column>
+				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'yellow' }}>
+					<Text>
+						Third Column
+					</Text>
+				</Column>
+				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'green' }}>
+					<Text>
+						Fourth Column
+					</Text>
+				</Column>
 			</Row>
 		</Container>
 	</View>

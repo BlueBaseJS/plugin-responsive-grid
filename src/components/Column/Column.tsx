@@ -4,11 +4,12 @@ import React from 'react';
 import { RowConsumer } from '../Row';
 import { SCREEN_SIZE } from '../../constants';
 import { ScreenSizeConsumer } from '../ScreenSize';
+import { Theme } from '@bluebase/core';
 // import { Theme } from '@bluebase/core';
 
-// export interface ColumnStyles {
-// 	root: StyleProp<ViewStyle>;
-// }
+export interface ColumnStyles {
+	root: StyleProp<ViewStyle>;
+}
 
 export interface ColumnProps extends ViewProps {
 	/**
@@ -99,7 +100,7 @@ export interface ColumnProps extends ViewProps {
 	// styles?: Partial<ColumnStyles>;
 }
 
-export const Column = ({ style, ...rest }: ColumnProps) => (
+export const Column = ({ style, styles, ...rest }: ColumnProps & { styles: ColumnStyles }) => (
 	<ScreenSizeConsumer>
 	{(screenSize) => (
 		<RowConsumer>
@@ -110,17 +111,20 @@ export const Column = ({ style, ...rest }: ColumnProps) => (
 			// const styles = _styles as ColumnStyles;
 
 			const stylesheet: Array<StyleProp<ViewStyle>> = [
-				style,
-				// styles.root,
+				// style,
+				styles.root,
 				{
-					flexDirection: 'column',
+					// flexDirection: 'column',
 					marginLeft,
 					width,
+					// paddingHorizontal: 8,
 				}
 			];
 
 			return (
-				<View {...rest} style={stylesheet} />
+				<View style={stylesheet}>
+					<View {...rest} style={style} />
+				</View>
 			);
 		}}
 		</RowConsumer>
@@ -128,12 +132,12 @@ export const Column = ({ style, ...rest }: ColumnProps) => (
 	</ScreenSizeConsumer>
 );
 
-// Column.defaultStyles = (_theme: Theme): ColumnStyles => ({
-// 	root: {
-// 		flexDirection: 'column',
-// 		// paddingHorizontal: theme.spacing.unit,
-// 	}
-// });
+Column.defaultStyles = (theme: Theme): ColumnStyles => ({
+	root: {
+		flexDirection: 'column',
+		paddingHorizontal: theme.spacing.unit,
+	}
+});
 
 const toPercent = (num: number) => (num * 100) + '%';
 

@@ -1,12 +1,9 @@
 import { Dimensions, ScaledSize } from 'react-native';
-import { RenderPropChildren, renderChildrenWithProps } from '@bluebase/core';
+import { OrientationObserverProps } from '@bluebase/components';
 import React from 'react';
+import { renderChildrenWithProps } from '@bluebase/core';
 
 export const isOrientationLandscape = ({ width, height }: { width: number, height: number}) => width > height;
-
-export interface OrientationObserverProps {
-	children: RenderPropChildren<OrientationObserverState>
-}
 
 export interface OrientationObserverState {
 	isLandscape: boolean,
@@ -34,6 +31,6 @@ export class OrientationObserver extends React.Component<OrientationObserverProp
 	}
 
 	render() {
-		return renderChildrenWithProps(this.props.children, this.state);
+		return renderChildrenWithProps(this.props.children, this.state.isLandscape);
 	}
 }

@@ -1,4 +1,4 @@
-import { SCREEN_SIZE } from '../constants';
+import { SCREEN_SIZE } from '@bluebase/components';
 
 export interface HiddenOptions {
 	xsHidden?: boolean;

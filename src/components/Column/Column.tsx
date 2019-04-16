@@ -1,8 +1,7 @@
+import { SCREEN_SIZE, View, ViewProps } from '@bluebase/components';
 import { StyleProp, ViewStyle } from 'react-native';
-import { View, ViewProps } from '@bluebase/components';
 import React from 'react';
 import { RowConsumer } from '../Row';
-import { SCREEN_SIZE } from '../../constants';
 import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { Theme } from '@bluebase/core';
 

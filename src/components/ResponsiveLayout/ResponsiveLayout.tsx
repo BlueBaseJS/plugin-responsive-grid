@@ -1,5 +1,5 @@
 import React from 'react';
-import { SCREEN_SIZE } from '../../constants';
+import { SCREEN_SIZE } from '@bluebase/components';
 import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { getComponent } from '@bluebase/core';
 

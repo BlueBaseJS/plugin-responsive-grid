@@ -1,12 +1,8 @@
 import { Dimensions, ScaledSize } from 'react-native';
-import { RenderPropChildren, renderChildrenWithProps } from '@bluebase/core';
+import { SCREEN_SIZE, ScreenSizeObserverProps } from '@bluebase/components';
 import React from 'react';
-import { SCREEN_SIZE } from '../../constants';
 import { getScreenSizeFromWidth } from '../../helpers';
-
-export interface ScreenSizeObserverProps {
-	children: RenderPropChildren<SCREEN_SIZE>
-}
+import { renderChildrenWithProps } from '@bluebase/core';
 
 export interface ScreenSizeObserverState {
 	readonly size: SCREEN_SIZE;
@@ -16,7 +12,7 @@ export class ScreenSizeObserver extends React.Component<ScreenSizeObserverProps,
 	constructor(props: ScreenSizeObserverProps) {
 		super(props);
 
-		const size = getScreenSizeFromWidth(Dimensions.get('window').width);;
+		const size = getScreenSizeFromWidth(Dimensions.get('window').width);
 		this.state = { size };
 	}
 

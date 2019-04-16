@@ -1062,18 +1062,18 @@
     tslint-react "^3.6.0"
     typescript "^3.1.4"
 
-"@bluebase/components@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-3.5.0.tgz#9cf1f765bef89112e223e07c5a8fddd673e6a875"
-  integrity sha512-LXwitjUzXhasW9aKr45+b1VhCcorS6wIqAAHU1owsfuj6bTTCP17xPiTHjRkJLmqkHyTSCyPbxyN9J1fkRhcqw==
+"@bluebase/components@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-4.1.1.tgz#1d69d9f9e0bcd71a94991bb3740456fdc87fa6b6"
+  integrity sha512-aLph4tlnimY1Ekmqm8Cw5uBu6ZcbH8h4khk0Avf+hFqiZjlmb2WL/CslYcNZD00BgZ0xdW2PW7//adt1gX0FDQ==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/core@^4.0.0-aplha.16":
-  version "4.0.0-aplha.16"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.16.tgz#4a5aac96af0e510846632c5e7a2e5c6b333251a1"
-  integrity sha512-nDLVOH5++RtYNtnW9xRO0WygpjARwUnJm6VHUHYNH5da7yfhK2Y11Dfe4jouVDHjJiFLf1DUi1N18c9nWJELFw==
+"@bluebase/core@^4.0.0-aplha.18":
+  version "4.0.0-aplha.18"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.18.tgz#ced712c9957a5cbd5a709ce429b9f302af72b969"
+  integrity sha512-cnTdqnaSCtYTUsgTVIVjbTDFkaW+9TQOn0srOHRlvP60hnD0PDmtTb+aybzdSgECFB1T26M9eL6wZ7nsq3Is6w==
   dependencies:
     deepmerge "^3.2.0"
     hoist-non-react-statics "^3.3.0"

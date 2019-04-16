@@ -2,7 +2,7 @@ import { StyleProp, ViewStyle } from 'react-native';
 import { View, ViewProps } from '@bluebase/components';
 import { MAX_CONTAINER_WIDTH } from '../../constants';
 import React from 'react';
-import { ScreenSizeConsumer } from '../ScreenSize';
+import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { Theme } from '@bluebase/core';
 
 export interface ContainerStyles {
@@ -12,7 +12,7 @@ export interface ContainerStyles {
 export interface ContainerProps extends ViewProps {}
 
 export const Container = ({ style, styles, ...rest }: ContainerProps & { styles: ContainerStyles }) => (
-	<ScreenSizeConsumer>
+	<ScreenSizeObserver>
 	{(size) => (
 		<View
 			{...rest}
@@ -23,7 +23,7 @@ export const Container = ({ style, styles, ...rest }: ContainerProps & { styles:
 			]}
 		/>
 	)}
-	</ScreenSizeConsumer>
+	</ScreenSizeObserver>
 );
 
 Container.defaultStyles = (theme: Theme) => ({

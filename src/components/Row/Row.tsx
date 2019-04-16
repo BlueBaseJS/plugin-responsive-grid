@@ -1,7 +1,7 @@
 import { Platform, StyleProp, ViewStyle } from 'react-native';
 import React, { createContext } from 'react';
 import { View, ViewProps } from '@bluebase/components';
-import { ScreenSizeConsumer } from '../ScreenSize';
+import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { Theme } from '@bluebase/core';
 import { isHidden } from '../../helpers';
 
@@ -23,7 +23,7 @@ export interface RowProps extends ViewProps {
 }
 
 export const Row = (props: RowProps & { styles: RowStyles }) => (
-	<ScreenSizeConsumer>
+	<ScreenSizeObserver>
 		{(screenSize) => {
 
 			if (isHidden(screenSize, props)) {
@@ -49,7 +49,7 @@ export const Row = (props: RowProps & { styles: RowStyles }) => (
 				</RowContext.Provider>
 			);
 		}}
-	</ScreenSizeConsumer>
+	</ScreenSizeObserver>
 );
 
 Row.defaultProps = {

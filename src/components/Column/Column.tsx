@@ -3,9 +3,8 @@ import { View, ViewProps } from '@bluebase/components';
 import React from 'react';
 import { RowConsumer } from '../Row';
 import { SCREEN_SIZE } from '../../constants';
-import { ScreenSizeConsumer } from '../ScreenSize';
+import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { Theme } from '@bluebase/core';
-// import { Theme } from '@bluebase/core';
 
 export interface ColumnStyles {
 	root: StyleProp<ViewStyle>;
@@ -101,7 +100,7 @@ export interface ColumnProps extends ViewProps {
 }
 
 export const Column = ({ style, styles, ...rest }: ColumnProps & { styles: ColumnStyles }) => (
-	<ScreenSizeConsumer>
+	<ScreenSizeObserver>
 	{(screenSize) => (
 		<RowConsumer>
 		{(rowSize) => {
@@ -129,7 +128,7 @@ export const Column = ({ style, styles, ...rest }: ColumnProps & { styles: Colum
 		}}
 		</RowConsumer>
 	)}
-	</ScreenSizeConsumer>
+	</ScreenSizeObserver>
 );
 
 Column.defaultStyles = (theme: Theme): ColumnStyles => ({

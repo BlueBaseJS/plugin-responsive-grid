@@ -1,6 +1,5 @@
-import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
-import { Column, Container, ResponsiveLayout, Row, ScreenSizeConsumer } from './components';
-import { withScreenSizeProvider } from './withScreenSizeProvider';
+import { Column, Container, OrientationObserver, ResponsiveLayout, Row, ScreenSizeObserver } from './components';
+import { createPlugin } from '@bluebase/core';
 
 export default createPlugin({
 	description: 'Provides Grid components to create Responsive Layouts',
@@ -11,15 +10,9 @@ export default createPlugin({
 	components: {
 		Column,
 		Container,
+		OrientationObserver,
 		ResponsiveLayout,
 		Row,
-		ScreenSizeConsumer,
-	},
-
-	filters: {
-		'bluebase.boot.end': (bootOptions: BootOptions, _ctx: any, BB: BlueBase) => {
-			BB.Components.addHocs('BlueBaseContent', withScreenSizeProvider);
-			return bootOptions;
-		},
+		ScreenSizeObserver,
 	},
 });

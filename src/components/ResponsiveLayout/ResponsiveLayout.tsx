@@ -1,6 +1,6 @@
 import React from 'react';
 import { SCREEN_SIZE } from '../../constants';
-import { ScreenSizeContext } from '../ScreenSize';
+import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { getComponent } from '@bluebase/core';
 
 export interface ResponsiveLayoutProps {
@@ -65,8 +65,6 @@ export interface ResponsiveLayoutProps {
 
 export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps> {
 
-	static contextType = ScreenSizeContext;
-
 	private DefaultComponent?: React.ComponentType<any>;
 	private XSComponent?: React.ComponentType<any>;
 	private SMComponent?: React.ComponentType<any>;
@@ -103,8 +101,6 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 
 	render() {
 
-		const screenSize: SCREEN_SIZE = this.context;
-
 		const {
 			default: _default,
 			lg,
@@ -120,43 +116,52 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 			...rest
 		} = this.props;
 
-		if (!this.DefaultComponent) {
-			throw Error('A "default" component is required in ResponsiveLayout.');
-		}
+		return (
+			<ScreenSizeObserver>
+			{(screenSize: SCREEN_SIZE) => {
+					
+				if (!this.DefaultComponent) {
+					throw Error('A "default" component is required in ResponsiveLayout.');
+				}
 
-		switch (screenSize) {
-			case 'xs':
-				return React.createElement(
-					this.XSComponent || this.DefaultComponent,
-					{ ...rest, ...xsProps }
-				);
+				switch (screenSize) {
+					case 'xs':
+						return React.createElement(
+							this.XSComponent || this.DefaultComponent,
+							{ ...rest, ...xsProps }
+						);
 
-			case 'sm':
-				return React.createElement(
-					this.SMComponent || this.DefaultComponent,
-					{ ...rest, ...smProps }
-				);
+					case 'sm':
+						return React.createElement(
+							
+							this.SMComponent || this.DefaultComponent,
+							{ ...rest, ...smProps }
+						);
 
-			case 'md':
-				return React.createElement(
-					this.MDComponent || this.DefaultComponent,
-					{ ...rest, ...mdProps }
-				);
+					case 'md':
+						return React.createElement(
+							this.MDComponent || this.DefaultComponent,
+							{ ...rest, ...mdProps }
+						);
 
-			case 'lg':
-				return React.createElement(
-					this.LGComponent || this.DefaultComponent,
-					{ ...rest, ...lgProps }
-				);
+					case 'lg':
+						return React.createElement(
+							this.LGComponent || this.DefaultComponent,
+							{ ...rest, ...lgProps }
+						);
 
-			case 'xl':
-				return React.createElement(
-					this.XLComponent || this.DefaultComponent,
-					{ ...rest, ...xlProps }
-				);
+					case 'xl':
+						return React.createElement(
+							this.XLComponent || this.DefaultComponent,
+							{ ...rest, ...xlProps }
+						);
 
-			default:
-				return React.createElement(this.DefaultComponent, rest);
-		}
+					default:
+						return React.createElement(this.DefaultComponent, rest);
+				}
+			}}
+			</ScreenSizeObserver>
+		);
+
 	}
 }

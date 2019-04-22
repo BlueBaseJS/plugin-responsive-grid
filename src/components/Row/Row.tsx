@@ -25,7 +25,7 @@ export interface RowProps extends ViewProps {
 export const Row = (props: RowProps & { styles: RowStyles }) => (
 	<ScreenSizeObserver>
 		{(screenSize) => {
-				console.log('row screen size', screenSize)
+				console.log('row screen size', screenSize, 'phiddennnnnnn', isHidden(screenSize, props))
 			if (isHidden(screenSize, props)) {
 				return null;
 			}

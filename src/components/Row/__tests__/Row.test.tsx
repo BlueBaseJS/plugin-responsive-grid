@@ -31,10 +31,17 @@ test('Row with nowrap prop', async () => {
 			flexDirection: 'row'
 		}
 	}
+
+
+	jest.doMock("../../../helpers/isHidden",()=> { 
+		const Component = ()=> <div/>;
+		return Component;
+	})
+
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
 	
-			<Row nowrap = {true} styles={styles as any}/>
+			<Row  nowrap = {true} styles={styles as any}/>
 	
 		</BlueBaseApp>
 	  );
@@ -46,7 +53,8 @@ test('Row with nowrap prop', async () => {
 test('Row with rowSize prop', async () => {
 	const styles = {
 		root: {
-			flexDirection: 'row'
+			flexDirection: 'row',
+			xsHidden:false
 		}
 	}
 	const wrapper = mount(
@@ -60,5 +68,45 @@ test('Row with rowSize prop', async () => {
 	await waitForElement(wrapper, Row);
 	
 	expect(wrapper.props().children.props.rowSize).toEqual(12)
+});
+
+test('Row with justifyContent prop', async () => {
+	const styles = {
+		root: {
+			flexDirection: 'row',
+			xsHidden:false
+		}
+	}
+	const wrapper = mount(
+		<BlueBaseApp plugins={[Plugin]}>
+	
+			<Row justifyContent = {'flex-start'} styles={styles as any}/>
+	
+		</BlueBaseApp>
+	  );
+		console.log('wrapper',wrapper.props().children.props);
+	await waitForElement(wrapper, Row);
+	
+	expect(wrapper.props().children.props.justifyContent).toEqual('flex-start')
+});
+
+test('Row with alignItems prop', async () => {
+	const styles = {
+		root: {
+			flexDirection: 'row',
+			xsHidden:false
+		}
+	}
+	const wrapper = mount(
+		<BlueBaseApp plugins={[Plugin]}>
+	
+			<Row alignItems = {'flex-start'} styles={styles as any}/>
+	
+		</BlueBaseApp>
+	  );
+		console.log('wrapper',wrapper.props().children.props);
+	await waitForElement(wrapper, Row);
+	
+	expect(wrapper.props().children.props.alignItems).toEqual('flex-start')
 });
 

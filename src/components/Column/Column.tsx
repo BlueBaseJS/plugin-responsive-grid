@@ -217,7 +217,7 @@ export const getColumnOffset = (screenSize: SCREEN_SIZE, rowSize: number, props:
 	return (props.offset) ? toPercent(props.offset / rowSize) : 0;
 };
 
-const getSize = (rowSize: number, props: ColumnProps) => {
+export const getSize = (rowSize: number, props: ColumnProps) => {
 
 	if (props.size) {
 		return props.size;

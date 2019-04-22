@@ -1,10 +1,10 @@
 import React from 'react';
 import { BlueBase } from '@bluebase/core';
-import { getColumnWidth, getColumnOffset } from '../Column';
+import { getColumnWidth, getColumnOffset, getSize } from '../Column';
 import { Column } from '../index';
 import 'mocha';
 import { mount } from "enzyme"
-
+import { Dimensions } from 'react-native';
 import { BlueBaseApp } from '@bluebase/core';
 import Plugin from '../../../index';
 import { waitForElement } from 'enzyme-async-helpers';
@@ -16,6 +16,48 @@ test('Plugin should be correctly registered', async () => {
 
 	expect(BB.Plugins.has('plugin-responsive-grid')).toBeTruthy();
 });
+
+describe('getSize tests group',()=>{
+	test('getSize function with size', () => {
+
+
+		const res = getSize(12, { size: 12 } )
+		expect(res).toEqual(12);
+	});
+
+
+	test('getSize function with xs', () => {
+
+
+		const res = getSize(12, { xs: 12 })
+		expect(res).toEqual(12);
+	});
+
+	test('getSize function with sm', () => {
+
+
+		const res = getSize( 12, { sm: 12 })
+		expect(res).toEqual(12);
+	});
+	test('getSize function with md', () => {
+
+
+		const res = getSize( 12, { md: 12 })
+		expect(res).toEqual(12);
+	});
+	test('getSize function with lg', () => {
+
+
+		const res = getSize(12, { lg: 12 })
+		expect(res).toEqual(12);
+	});
+	test('getSize function with xl', () => {
+
+
+		const res = getSize(12, { xl: 12 })
+		expect(res).toEqual(12);
+	});
+})
 
 describe(' getColumnWidth tests Group', () => {
 	test('getColumnWidth function with xs', () => {
@@ -95,7 +137,6 @@ describe(' getColumnOffset tests Group', () => {
 
 });
 
-
 test('Plugin should be correctly mounted', async () => {
 	const styles = {
 		root: {
@@ -160,6 +201,7 @@ test('Column with xs prop', async () => {
 			flexDirection: 'row'
 		}
 	}
+	Dimensions.get('window').width = 574;
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
 
@@ -220,6 +262,8 @@ test('Column with sm prop', async () => {
 			flexDirection: 'row'
 		}
 	}
+	Dimensions.get('window').width = 750;
+
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
 
@@ -274,6 +318,8 @@ test('Column with md prop', async () => {
 			flexDirection: 'row'
 		}
 	}
+	Dimensions.get('window').width = 990;
+
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
 
@@ -326,6 +372,8 @@ test('Column with lg prop', async () => {
 			flexDirection: 'row'
 		}
 	}
+	Dimensions.get('window').width = 1100;
+
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
 
@@ -378,6 +426,8 @@ test('Column with xl prop', async () => {
 			flexDirection: 'row'
 		}
 	}
+	Dimensions.get('window').width = 1300;
+
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
 

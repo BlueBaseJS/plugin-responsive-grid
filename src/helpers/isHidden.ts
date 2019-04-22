@@ -7,11 +7,11 @@ export interface HiddenOptions {
 	lgHidden?: boolean;
 	xlHidden?: boolean;
 }
-
 export const isHidden = (
 	screenSize: SCREEN_SIZE,
 	props: HiddenOptions & { [key: string]: any }
 ) => {
+	console.log('is hidden', props)
 	switch (screenSize) {
 		case 'sm':
 			return !!props.smHidden;

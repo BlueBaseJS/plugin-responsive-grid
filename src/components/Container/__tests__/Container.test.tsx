@@ -6,7 +6,7 @@ import  { mount } from  "enzyme"
 import { BlueBaseApp } from '@bluebase/core';
 import Plugin from '../../../index';
 import { waitForElement } from 'enzyme-async-helpers';
-
+import { Dimensions }from 'react-native';
 
 test('Plugin should be correctly mounted', async () => {
 	const styles = {
@@ -15,7 +15,7 @@ test('Plugin should be correctly mounted', async () => {
 			paddingHorizontalXS:8
 		}
 	}
-
+	Dimensions.get('window').width = 574;
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
 	

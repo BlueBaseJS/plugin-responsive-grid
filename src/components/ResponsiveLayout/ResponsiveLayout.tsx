@@ -1,6 +1,6 @@
 import React from 'react';
 import { SCREEN_SIZE } from '../../constants';
-import { ScreenSizeContext } from '../ScreenSize';
+import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { getComponent } from '@bluebase/core';
 
 export interface ResponsiveLayoutProps {
@@ -65,8 +65,7 @@ export interface ResponsiveLayoutProps {
 
 export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps> {
 
-	static contextType = ScreenSizeContext;
-
+	
 	private DefaultComponent?: React.ComponentType<any>;
 	private XSComponent?: React.ComponentType<any>;
 	private SMComponent?: React.ComponentType<any>;
@@ -77,33 +76,31 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 	componentWillMount() {
 
 		this.DefaultComponent = (typeof this.props.default === 'string')
-		? getComponent(typeof this.props.default)
-		: this.props.default;
-
+			? getComponent(typeof this.props.default)
+			: this.props.default;
+			
 		this.XSComponent = (typeof this.props.xs === 'string')
-		? getComponent(typeof this.props.xs)
-		: this.props.xs;
-
+			? getComponent(typeof this.props.xs)
+			: this.props.xs;
+			console.log('xs component',this.props)
 		this.SMComponent = (typeof this.props.sm === 'string')
-		? getComponent(typeof this.props.sm)
-		: this.props.sm;
+			? getComponent(typeof this.props.sm)
+			: this.props.sm;
 
 		this.MDComponent = (typeof this.props.md === 'string')
-		? getComponent(typeof this.props.md)
-		: this.props.md;
+			? getComponent(typeof this.props.md)
+			: this.props.md;
 
 		this.LGComponent = (typeof this.props.lg === 'string')
-		? getComponent(typeof this.props.lg)
-		: this.props.lg;
+			? getComponent(typeof this.props.lg)
+			: this.props.lg;
 
 		this.XLComponent = (typeof this.props.xl === 'string')
-		? getComponent(typeof this.props.xl)
-		: this.props.xl;
+			? getComponent(typeof this.props.xl)
+			: this.props.xl;
 	}
 
 	render() {
-
-		const screenSize: SCREEN_SIZE = this.context;
 
 		const {
 			default: _default,
@@ -120,43 +117,49 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 			...rest
 		} = this.props;
 
-		if (!this.DefaultComponent) {
-			throw Error('A "default" component is required in ResponsiveLayout.');
-		}
+		return (
+			<ScreenSizeObserver>
+				{(screenSize: SCREEN_SIZE) => {
+					if (!this.DefaultComponent) {
+						throw Error('A "default" component is required in ResponsiveLayout.');
+					}
 
-		switch (screenSize) {
-			case 'xs':
-				return React.createElement(
-					this.XSComponent || this.DefaultComponent,
-					{ ...rest, ...xsProps }
-				);
+					switch (screenSize) {
+						case 'xs':
+							return React.createElement(
+								this.XSComponent || this.DefaultComponent,
+								{ ...rest, ...xsProps }
+							);
 
-			case 'sm':
-				return React.createElement(
-					this.SMComponent || this.DefaultComponent,
-					{ ...rest, ...smProps }
-				);
+						case 'sm':
+							return React.createElement(
 
-			case 'md':
-				return React.createElement(
-					this.MDComponent || this.DefaultComponent,
-					{ ...rest, ...mdProps }
-				);
+								this.SMComponent || this.DefaultComponent,
+								{ ...rest, ...smProps }
+							);
 
-			case 'lg':
-				return React.createElement(
-					this.LGComponent || this.DefaultComponent,
-					{ ...rest, ...lgProps }
-				);
+						case 'md':
+							return React.createElement(
+								this.MDComponent || this.DefaultComponent,
+								{ ...rest, ...mdProps }
+							);
 
-			case 'xl':
-				return React.createElement(
-					this.XLComponent || this.DefaultComponent,
-					{ ...rest, ...xlProps }
-				);
+						case 'lg':
+							return React.createElement(
+								this.LGComponent || this.DefaultComponent,
+								{ ...rest, ...lgProps }
+							);
 
-			default:
-				return React.createElement(this.DefaultComponent, rest);
-		}
+						default:
+							return React.createElement(
+								this.XLComponent || this.DefaultComponent,
+								{ ...rest, ...xlProps }
+							);
+
+							}
+				}}
+			</ScreenSizeObserver>
+		);
+
 	}
 }

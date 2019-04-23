@@ -3,7 +3,6 @@ import React, { createContext } from 'react';
 import { View, ViewProps } from '@bluebase/components';
 import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { Theme } from '@bluebase/core';
-import { isHidden } from '../../helpers';
 
 const initialSize = 12;
 
@@ -24,11 +23,9 @@ export interface RowProps extends ViewProps {
 
 export const Row = (props: RowProps & { styles: RowStyles }) => (
 	<ScreenSizeObserver>
-		{(screenSize) => {
-				console.log('row screen size', screenSize, 'phiddennnnnnn', isHidden(screenSize, props))
-			if (isHidden(screenSize, props)) {
-				return null;
-			}
+		{() => {
+			
+			
 
 			const { alignItems, justifyContent, nowrap, rowSize, style, styles, ...rest } = props;
 

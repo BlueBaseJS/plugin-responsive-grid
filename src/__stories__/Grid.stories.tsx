@@ -31,7 +31,7 @@ stories
 						Third Column
 					</Text>
 				</Column>
-				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'green' }}>
+				<Column sm={6} md={4} lg={3} xsHidden lgOffset = {8} style={{ backgroundColor: 'green' }}>
 					<Text>
 						Fourth Column
 					</Text>

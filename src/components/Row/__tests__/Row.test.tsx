@@ -6,12 +6,11 @@ import  { mount } from  "enzyme"
 import { BlueBaseApp } from '@bluebase/core';
 import Plugin from '../../../index';
 import { waitForElement } from 'enzyme-async-helpers';
-
+import { Platform } from 'react-native';
 test('Plugin should be correctly mounted', async () => {
 	const styles = {
-		root: {
-			flexDirection: 'row'
-		}
+		
+			smHidden:true 
 	}
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
@@ -27,16 +26,11 @@ test('Plugin should be correctly mounted', async () => {
 
 test('Row with nowrap prop', async () => {
 	const styles = {
-		root: {
-			flexDirection: 'row'
-		}
+		smHidden:false 
 	}
 
 
-	jest.doMock("../../../helpers/isHidden",()=> { 
-		const Component = ()=> <div/>;
-		return Component;
-	})
+	Platform.OS = 'web'
 
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
@@ -50,6 +44,7 @@ test('Row with nowrap prop', async () => {
 	
 	expect(wrapper.props().children.props.nowrap).toEqual(true)
 });
+
 test('Row with rowSize prop', async () => {
 	const styles = {
 		root: {
@@ -57,6 +52,7 @@ test('Row with rowSize prop', async () => {
 			xsHidden:false
 		}
 	}
+	Platform.OS = 'android'
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin]}>
 	

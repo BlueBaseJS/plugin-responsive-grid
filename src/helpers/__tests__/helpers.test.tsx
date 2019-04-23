@@ -89,7 +89,7 @@ describe(' isHidden tests Group', () => {
 
 
 
-		const res = isHidden('', { xs: 12 })
+		const res = isHidden('' as any, { xs: 12 })
 		console.log('response empty', res)
 		expect(res).toEqual(false);
 	});

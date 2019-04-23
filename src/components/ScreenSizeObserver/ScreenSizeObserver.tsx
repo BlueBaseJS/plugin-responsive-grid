@@ -32,7 +32,7 @@ export class ScreenSizeObserver extends React.Component<ScreenSizeObserverProps,
 	handleOrientationChange = ({ window }: { window: ScaledSize }) => {
 		const size = getScreenSizeFromWidth(window.width);
 
-
+		console.log('size', size)
 		if (size !== this.state.size) {
 			this.setState({ size });
 		}

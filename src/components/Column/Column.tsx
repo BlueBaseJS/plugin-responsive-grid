@@ -5,6 +5,7 @@ import { RowConsumer } from '../Row';
 import { SCREEN_SIZE } from '../../constants';
 import { ScreenSizeObserver } from '../ScreenSizeObserver';
 import { Theme } from '@bluebase/core';
+import { isHidden } from '../../helpers';
 
 export interface ColumnStyles {
 	root: StyleProp<ViewStyle>;
@@ -105,7 +106,9 @@ export const Column = ({ style, styles, ...rest }: ColumnProps & { styles: Colum
 		<RowConsumer>
 		{(rowSize) => {
 			
-
+			if (isHidden(screenSize, rest)) {
+				return null;
+			}
 			const width = getColumnWidth(screenSize, rowSize, rest);
 			const marginLeft = getColumnOffset(screenSize, rowSize, rest);
 			// const styles = _styles as ColumnStyles;

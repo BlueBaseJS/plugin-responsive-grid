@@ -65,6 +65,7 @@ export interface ResponsiveLayoutProps {
 
 export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps> {
 
+	
 	private DefaultComponent?: React.ComponentType<any>;
 	private XSComponent?: React.ComponentType<any>;
 	private SMComponent?: React.ComponentType<any>;
@@ -77,11 +78,11 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 		this.DefaultComponent = (typeof this.props.default === 'string')
 			? getComponent(typeof this.props.default)
 			: this.props.default;
-
+			
 		this.XSComponent = (typeof this.props.xs === 'string')
 			? getComponent(typeof this.props.xs)
 			: this.props.xs;
-
+			console.log('xs component',this.props)
 		this.SMComponent = (typeof this.props.sm === 'string')
 			? getComponent(typeof this.props.sm)
 			: this.props.sm;
@@ -119,7 +120,6 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 		return (
 			<ScreenSizeObserver>
 				{(screenSize: SCREEN_SIZE) => {
-					console.log('screen size ',screenSize)
 					if (!this.DefaultComponent) {
 						throw Error('A "default" component is required in ResponsiveLayout.');
 					}
@@ -150,15 +150,13 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 								{ ...rest, ...lgProps }
 							);
 
-						case 'xl':
+						default:
 							return React.createElement(
 								this.XLComponent || this.DefaultComponent,
 								{ ...rest, ...xlProps }
 							);
 
-						default:
-							return React.createElement(this.DefaultComponent, rest);
-					}
+							}
 				}}
 			</ScreenSizeObserver>
 		);

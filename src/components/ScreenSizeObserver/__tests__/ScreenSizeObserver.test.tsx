@@ -62,6 +62,7 @@ describe('ScreenSizeObserver functions unit test',()=>{
 		
 		let object:any;
 		const obj = new ScreenSizeObserver(object);
+		obj.handleOrientationChange({window:{fontScale:12,height:12,scale:15,width:750}})
 		obj.handleOrientationChange({window:{fontScale:12,height:12,scale:15,width:100}})
 	})
 })

@@ -2085,13 +2085,12 @@
     "@types/react" "*"
     "@types/storybook__react" "*"
 
-"@types/storybook__addon-knobs@^4.0.3":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@types/storybook__addon-knobs/-/storybook__addon-knobs-4.0.5.tgz#3984ab2a5934832f5161d85066ac6e65ecbd4581"
-  integrity sha512-5W9mdCn6J7v22jfh+OQCa0gMOgVo1SjTpxez2AmNA9hWbvkG3LVDhzozTtCnPFR5zZF029yRWAf7HSf/sQkEfQ==
+"@types/storybook__addon-knobs@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@types/storybook__addon-knobs/-/storybook__addon-knobs-5.2.0.tgz#338e555dc6c0c4595f265d7ed7e2bcbb0eaa553d"
+  integrity sha512-Q1U5R1udWQ4Z5qJJkshGd2wxcTKM4n7HhNiSabZ8GKeme2B/oDTldqGUKEOqp0nIvWMb5eqinizxDx7NfEDlPg==
   dependencies:
-    "@types/react" "*"
-    "@types/storybook__react" "*"
+    storybook__addon-knobs "*"
 
 "@types/storybook__react@*":
   version "4.0.1"
@@ -13038,6 +13037,11 @@ stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+
+storybook__addon-knobs@*:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/storybook__addon-knobs/-/storybook__addon-knobs-0.0.4.tgz#a9965d85bf93341b8fa227105049d681f5e24676"
+  integrity sha512-MZogtup7usbyDsbT8fdPNwB3VGQVcBD+u1+LpgrEYB6U3TwG6PEDujTl2d0CXsC5DP4FxEbJN4CBPxNtXU7zRg==
 
 stream-browserify@^2.0.1:
   version "2.0.2"

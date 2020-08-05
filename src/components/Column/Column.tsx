@@ -1,9 +1,10 @@
+import React, { useContext } from 'react';
 import { SCREEN_SIZE, View, ViewProps } from '@bluebase/components';
 import { StyleProp, ViewStyle } from 'react-native';
-import React from 'react';
-import { RowConsumer } from '../Row';
-import { ScreenSizeObserver } from '../ScreenSizeObserver';
-import { Theme } from '@bluebase/core';
+import { Theme, useStyles } from '@bluebase/core';
+
+import { RowContext } from '../Row';
+import { useScreenSize } from '../../hooks';
 
 export interface ColumnStyles {
 	root: StyleProp<ViewStyle>;
@@ -98,46 +99,39 @@ export interface ColumnProps extends ViewProps {
 	// styles?: Partial<ColumnStyles>;
 }
 
-export const Column = ({ style, styles, ...rest }: ColumnProps & { styles: ColumnStyles }) => (
-	<ScreenSizeObserver>
-	{(screenSize) => (
-		<RowConsumer>
-		{(rowSize) => {
-
-			const width = getColumnWidth(screenSize, rowSize, rest);
-			const marginLeft = getColumnOffset(screenSize, rowSize, rest);
-			// const styles = _styles as ColumnStyles;
-
-			const stylesheet: Array<StyleProp<ViewStyle>> = [
-				// style,
-				styles.root,
-				{
-					// flexDirection: 'column',
-					marginLeft,
-					width,
-					// paddingHorizontal: 8,
-				}
-			];
-
-			return (
-				<View style={stylesheet}>
-					<View {...rest} style={style} />
-				</View>
-			);
-		}}
-		</RowConsumer>
-	)}
-	</ScreenSizeObserver>
-);
-
-Column.defaultStyles = (theme: Theme): ColumnStyles => ({
+const defaultStyles = (theme: Theme): ColumnStyles => ({
 	root: {
 		flexDirection: 'column',
 		paddingHorizontal: theme.spacing.unit,
-	}
+	},
 });
 
-const toPercent = (num: number) => (num * 100) + '%';
+export const Column = (props: ColumnProps & { styles: ColumnStyles }) => {
+	const screenSize = useScreenSize();
+	const rowSize = useContext(RowContext);
+
+	const { style, ...rest } = props;
+	const styles = useStyles('Column', props, defaultStyles);
+
+	const width = getColumnWidth(screenSize, rowSize, rest);
+	const marginLeft = getColumnOffset(screenSize, rowSize, rest);
+
+	const stylesheet: Array<StyleProp<ViewStyle>> = [
+		styles.root,
+		{
+			marginLeft,
+			width,
+		},
+	];
+
+	return (
+		<View style={stylesheet}>
+			<View {...rest} style={style} />
+		</View>
+	);
+};
+
+const toPercent = (num: number) => num * 100 + '%';
 
 const getColumnWidth = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnProps) => {
 	switch (screenSize) {
@@ -205,7 +199,7 @@ const getColumnOffset = (screenSize: SCREEN_SIZE, rowSize: number, props: Column
 				return toPercent(props.lgOffset / rowSize);
 			}
 	}
-	return (props.offset) ? toPercent(props.offset / rowSize) : 0;
+	return props.offset ? toPercent(props.offset / rowSize) : 0;
 };
 
 const getSize = (rowSize: number, props: ColumnProps) => {

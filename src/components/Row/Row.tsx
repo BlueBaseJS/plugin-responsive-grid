@@ -1,9 +1,10 @@
 import { Platform, StyleProp, ViewStyle } from 'react-native';
 import React, { createContext } from 'react';
 import { View, ViewProps } from '@bluebase/components';
-import { ScreenSizeConsumer } from '../ScreenSize';
+
 import { Theme } from '@bluebase/core';
 import { isHidden } from '../../helpers';
+import { useScreenSize } from '../../hooks';
 
 const initialSize = 12;
 
@@ -16,44 +17,41 @@ export interface RowStyles {
 }
 
 export interface RowProps extends ViewProps {
-	alignItems?: ViewStyle['alignItems'],
-	justifyContent?: ViewStyle['justifyContent'],
-	nowrap?: boolean,
-	rowSize?: number,
+	alignItems?: ViewStyle['alignItems'];
+	justifyContent?: ViewStyle['justifyContent'];
+	nowrap?: boolean;
+	rowSize?: number;
 }
 
-export const Row = (props: RowProps & { styles: RowStyles }) => (
-	<ScreenSizeConsumer>
-		{(screenSize) => {
+export const Row = (props: RowProps & { styles: RowStyles }) => {
+	const screenSize = useScreenSize();
 
-			if (isHidden(screenSize, props)) {
-				return null;
-			}
+	if (isHidden(screenSize, props)) {
+		return null;
+	}
 
-			const { alignItems, justifyContent, nowrap, rowSize, style, styles, ...rest } = props;
+	const { alignItems, justifyContent, nowrap, rowSize, style, styles, ...rest } = props;
 
-			const stylesheet: Array<StyleProp<ViewStyle>> = [
-				style,
-				styles.root,
-				{
-					alignItems,
-					flexWrap: nowrap ? 'nowrap' : 'wrap',
-					justifyContent,
-				},
-				Platform.OS === 'web' ? { overflow: 'visible' } : {}
-			];
+	const stylesheet: Array<StyleProp<ViewStyle>> = [
+		style,
+		styles.root,
+		{
+			alignItems,
+			flexWrap: nowrap ? 'nowrap' : 'wrap',
+			justifyContent,
+		},
+		Platform.OS === 'web' ? { overflow: 'visible' } : {},
+	];
 
-			return (
-				<RowContext.Provider value={rowSize as number}>
-					<View {...rest} style={stylesheet} />
-				</RowContext.Provider>
-			);
-		}}
-	</ScreenSizeConsumer>
-);
+	return (
+		<RowContext.Provider value={rowSize as number}>
+			<View {...rest} style={stylesheet} />
+		</RowContext.Provider>
+	);
+};
 
 Row.defaultProps = {
-	rowSize: initialSize
+	rowSize: initialSize,
 };
 
 Row.defaultStyles = (theme: Theme) => ({
@@ -61,5 +59,5 @@ Row.defaultStyles = (theme: Theme) => ({
 		flexDirection: 'row',
 		marginHorizontal: -1 * theme.spacing.unit,
 		paddingVertical: theme.spacing.unit,
-	}
+	},
 });

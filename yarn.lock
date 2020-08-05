@@ -1062,21 +1062,22 @@
     tslint-react "^3.6.0"
     typescript "^3.1.4"
 
-"@bluebase/components@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-3.5.0.tgz#9cf1f765bef89112e223e07c5a8fddd673e6a875"
-  integrity sha512-LXwitjUzXhasW9aKr45+b1VhCcorS6wIqAAHU1owsfuj6bTTCP17xPiTHjRkJLmqkHyTSCyPbxyN9J1fkRhcqw==
+"@bluebase/components@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-4.1.1.tgz#1d69d9f9e0bcd71a94991bb3740456fdc87fa6b6"
+  integrity sha512-aLph4tlnimY1Ekmqm8Cw5uBu6ZcbH8h4khk0Avf+hFqiZjlmb2WL/CslYcNZD00BgZ0xdW2PW7//adt1gX0FDQ==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/core@^4.0.0-aplha.16":
-  version "4.0.0-aplha.16"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.16.tgz#4a5aac96af0e510846632c5e7a2e5c6b333251a1"
-  integrity sha512-nDLVOH5++RtYNtnW9xRO0WygpjARwUnJm6VHUHYNH5da7yfhK2Y11Dfe4jouVDHjJiFLf1DUi1N18c9nWJELFw==
+"@bluebase/core@^5.11.1":
+  version "5.11.1"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-5.11.1.tgz#1ddb3eabb9eb469c3d2ac68d7eb6ffb46064f85d"
+  integrity sha512-pmvPmDRxdCZ/HgFScwacJ4aksrPTr7SSb3tsbr4xyDqgWk1BMR1Fw5hoN4L0bTgAgj6yd/RZ4X/S5ud1Dx7jNQ==
   dependencies:
-    deepmerge "^3.2.0"
-    hoist-non-react-statics "^3.3.0"
+    deepmerge "^4.0.0"
+    hoist-non-react-statics "^3.3.1"
+    is-plain-object "^3.0.0"
     lodash.flowright "^3.5.0"
     lodash.isboolean "^3.0.3"
     lodash.isfunction "^3.0.9"
@@ -1085,7 +1086,7 @@
     lodash.kebabcase "^4.1.1"
     react-loadable "^5.5.0"
     rtl-detect "^1.0.2"
-    tslib "^1.9.3"
+    tslib "^1.10.0"
 
 "@bluebase/storybook-addon@^3.0.0":
   version "3.0.0"
@@ -4856,6 +4857,11 @@ deepmerge@*, deepmerge@^3.2.0:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.2.0.tgz#58ef463a57c08d376547f8869fdc5bcee957f44e"
   integrity sha512-6+LuZGU7QCNUnAJyX8cIrlzoEgggTM6B7mm+znKOX4t5ltluT9KLjN6g61ECMS0LTsLW7yDpNoxhix5FZcrIow==
 
+deepmerge@^4.0.0:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+  integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
+
 default-require-extensions@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/default-require-extensions/-/default-require-extensions-2.0.0.tgz#f5f8fbb18a7d6d50b21f641f649ebb522cfe24f7"
@@ -6704,6 +6710,13 @@ hoist-non-react-statics@^3.3.0:
   dependencies:
     react-is "^16.7.0"
 
+hoist-non-react-statics@^3.3.1:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
+  integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
+  dependencies:
+    react-is "^16.7.0"
+
 homedir-polyfill@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.3.tgz#743298cef4e5af3e194161fbadcc2151d3a058e8"
@@ -7410,6 +7423,11 @@ is-plain-object@2.0.4, is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-
   integrity sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==
   dependencies:
     isobject "^3.0.1"
+
+is-plain-object@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-3.0.1.tgz#662d92d24c0aa4302407b0d45d21f2251c85f85b"
+  integrity sha512-Xnpx182SBMrr/aBik8y+GuR4U1L9FqMSojwDQwPMmxyC6bvEqly9UBCxhauBF5vNh2gwWJNX6oDV7O+OM4z34g==
 
 is-posix-bracket@^0.1.0:
   version "0.1.1"
@@ -11432,6 +11450,11 @@ react-modal@^3.8.1:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
+react-native-dimensions-hooks@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-dimensions-hooks/-/react-native-dimensions-hooks-1.0.0.tgz#64af7edca6faf9a5ff1c8b280dfe3acccf053455"
+  integrity sha512-WSbu+eosBuYcAnPsVlWecHqeYqAgMTUn3nuo5z6R7XAjuMkEsklj59FwP34f64Deh6u6Dq8WA9H89a9dSaCeRQ==
+
 react-native-typescript-transformer@^1.2.12:
   version "1.2.12"
   resolved "https://registry.yarnpkg.com/react-native-typescript-transformer/-/react-native-typescript-transformer-1.2.12.tgz#ec234d31446d1aee213a2d5fb7e7584beff5dba3"
@@ -13689,6 +13712,11 @@ tslib@1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
   integrity sha512-f/qGG2tUkrISBlQZEjEqoZ3B2+npJjIf04H1wuAv9iA8i04Icp+61KRXxFdha22670NJopsZCIjhC3SnjPRKrQ==
+
+tslib@^1.10.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
+  integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
 tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.9.3"

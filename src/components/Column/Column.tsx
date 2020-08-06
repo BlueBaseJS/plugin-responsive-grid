@@ -4,7 +4,7 @@ import { StyleProp, ViewStyle } from 'react-native';
 import { Theme, useStyles } from '@bluebase/core';
 
 import { RowContext } from '../Row';
-import { useScreenSize } from '../../hooks';
+
 
 export interface ColumnStyles {
 	root: StyleProp<ViewStyle>;
@@ -107,14 +107,14 @@ const defaultStyles = (theme: Theme): ColumnStyles => ({
 });
 
 export const Column = (props: ColumnProps & { styles: ColumnStyles }) => {
-	const screenSize = useScreenSize();
-	const rowSize = useContext(RowContext);
+	
+	const rowDimension = useContext(RowContext);
 
 	const { style, ...rest } = props;
 	const styles = useStyles('Column', props, defaultStyles);
 
-	const width = getColumnWidth(screenSize, rowSize, rest);
-	const marginLeft = getColumnOffset(screenSize, rowSize, rest);
+	const width = getColumnWidth(rowDimension.rowwidth, rowDimension.rowsize, rest);
+	const marginLeft = getColumnOffset(rowDimension.rowwidth, rowDimension.rowsize, rest);
 
 	const stylesheet: Array<StyleProp<ViewStyle>> = [
 		styles.root,

@@ -1,9 +1,8 @@
 import { View, ViewProps } from '@bluebase/components';
-
-import { MAX_CONTAINER_WIDTH } from '../../constants';
 import React from 'react';
 import { Theme } from '@bluebase/core';
-import { useScreenSize } from '../../hooks';
+import { useLayout } from '@react-native-community/hooks'
+
 
 export interface ContainerStyles {}
 
@@ -14,11 +13,18 @@ export const Container = ({
 	styles,
 	...rest
 }: ContainerProps & { styles: ContainerStyles }) => {
-	const size = useScreenSize();
-
-	return (
-		<View {...rest} style={[{ width: MAX_CONTAINER_WIDTH[size], alignSelf: 'center' }, style]} />
-	);
+	
+	const { width, onLayout}  = useLayout()
+	
+	
+	
+	return(
+		
+		<View onLayout={onLayout}>
+			
+			<View {...rest} style={[{ width: width, alignSelf: 'center' }, style]}/>
+		</View>
+	)
 };
 
 Container.defaultStyles = (_theme: Theme) => ({});

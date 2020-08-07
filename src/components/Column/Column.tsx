@@ -107,7 +107,6 @@ const defaultStyles = (theme: Theme): ColumnStyles => ({
 });
 
 export const Column = (props: ColumnProps & { styles: ColumnStyles }) => {
-	
 	const rowDimension = useContext(RowContext);
 
 	const { style, ...rest } = props;
@@ -131,9 +130,9 @@ export const Column = (props: ColumnProps & { styles: ColumnStyles }) => {
 	);
 };
 
-const toPercent = (num: number) => num * 100 + '%';
+const toPercent = (num: number) => `${num * 100  }%`;
 
-const getColumnWidth = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnProps) => {
+export const getColumnWidth = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnProps) => {
 	switch (screenSize) {
 		case 'sm':
 			if (props.sm) {
@@ -168,7 +167,7 @@ const getColumnWidth = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnP
 	return toPercent(getSize(rowSize, props) / rowSize);
 };
 
-const getColumnOffset = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnProps) => {
+export const getColumnOffset = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnProps) => {
 	switch (screenSize) {
 		case 'sm':
 			if (props.smOffset) {
@@ -202,7 +201,7 @@ const getColumnOffset = (screenSize: SCREEN_SIZE, rowSize: number, props: Column
 	return props.offset ? toPercent(props.offset / rowSize) : 0;
 };
 
-const getSize = (rowSize: number, props: ColumnProps) => {
+export const getSize = (rowSize: number, props: ColumnProps) => {
 	if (props.size) {
 		return props.size;
 	}

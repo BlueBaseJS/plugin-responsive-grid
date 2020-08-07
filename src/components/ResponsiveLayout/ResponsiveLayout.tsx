@@ -75,28 +75,28 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 	componentWillMount() {
 
 		this.DefaultComponent = (typeof this.props.default === 'string')
-		? getComponent(typeof this.props.default)
-		: this.props.default;
+			? getComponent(typeof this.props.default)
+			: this.props.default;
 
 		this.XSComponent = (typeof this.props.xs === 'string')
-		? getComponent(typeof this.props.xs)
-		: this.props.xs;
+			? getComponent(typeof this.props.xs)
+			: this.props.xs;
 
 		this.SMComponent = (typeof this.props.sm === 'string')
-		? getComponent(typeof this.props.sm)
-		: this.props.sm;
+			? getComponent(typeof this.props.sm)
+			: this.props.sm;
 
 		this.MDComponent = (typeof this.props.md === 'string')
-		? getComponent(typeof this.props.md)
-		: this.props.md;
+			? getComponent(typeof this.props.md)
+			: this.props.md;
 
 		this.LGComponent = (typeof this.props.lg === 'string')
-		? getComponent(typeof this.props.lg)
-		: this.props.lg;
+			? getComponent(typeof this.props.lg)
+			: this.props.lg;
 
 		this.XLComponent = (typeof this.props.xl === 'string')
-		? getComponent(typeof this.props.xl)
-		: this.props.xl;
+			? getComponent(typeof this.props.xl)
+			: this.props.xl;
 	}
 
 	render() {
@@ -118,47 +118,48 @@ export class ResponsiveLayout extends React.PureComponent<ResponsiveLayoutProps>
 
 		return (
 			<ScreenSizeObserver>
-			{(screenSize: SCREEN_SIZE) => {
+				{(screenSize: SCREEN_SIZE) => {
 
-				if (!this.DefaultComponent) {
-					throw Error('A "default" component is required in ResponsiveLayout.');
-				}
+					if (!this.DefaultComponent) {
 
-				switch (screenSize) {
-					case 'xs':
-						return React.createElement(
-							this.XSComponent || this.DefaultComponent,
-							{ ...rest, ...xsProps }
-						);
+						throw  Error('A "default" component is required in ResponsiveLayout.');
+					}
 
-					case 'sm':
-						return React.createElement(
-							this.SMComponent || this.DefaultComponent,
-							{ ...rest, ...smProps }
-						);
+					switch (screenSize) {
+						case 'xs':
+							return React.createElement(
+								this.XSComponent || this.DefaultComponent,
+								{ ...rest, ...xsProps }
+							);
 
-					case 'md':
-						return React.createElement(
-							this.MDComponent || this.DefaultComponent,
-							{ ...rest, ...mdProps }
-						);
+						case 'sm':
+							return React.createElement(
+								this.SMComponent || this.DefaultComponent,
+								{ ...rest, ...smProps }
+							);
 
-					case 'lg':
-						return React.createElement(
-							this.LGComponent || this.DefaultComponent,
-							{ ...rest, ...lgProps }
-						);
+						case 'md':
+							return React.createElement(
+								this.MDComponent || this.DefaultComponent,
+								{ ...rest, ...mdProps }
+							);
 
-					case 'xl':
-						return React.createElement(
-							this.XLComponent || this.DefaultComponent,
-							{ ...rest, ...xlProps }
-						);
+						case 'lg':
+							return React.createElement(
+								this.LGComponent || this.DefaultComponent,
+								{ ...rest, ...lgProps }
+							);
 
-					default:
-						return React.createElement(this.DefaultComponent, rest);
-				}
-			}}
+						case 'xl':
+							return React.createElement(
+								this.XLComponent || this.DefaultComponent,
+								{ ...rest, ...xlProps }
+							);
+
+						default:
+							return React.createElement(this.DefaultComponent, rest);
+					}
+				}}
 			</ScreenSizeObserver>
 		);
 

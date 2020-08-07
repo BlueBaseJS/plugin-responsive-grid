@@ -12,34 +12,34 @@ const stories = storiesOf('Grid', module);
 
 stories
 
-.add('Grid', () => (
-	<View>
-		<Container style={{ backgroundColor: 'rgba(0,0,0,.12)' }}>
-			<Row rowSize={12}>
-				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'yellow' }}>
-					<Text>
+	.add('Grid', () => (
+		<View>
+			<Container style={{ backgroundColor: 'rgba(0,0,0,.12)' }}>
+				<Row rowSize={12}>
+					<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'yellow' }}>
+						<Text>
 						First Column
-					</Text>
-				</Column>
-				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'green' }}>
-					<Text>
+						</Text>
+					</Column>
+					<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'green' }}>
+						<Text>
 						Second Column
-					</Text>
-				</Column>
-				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'yellow' }}>
-					<Text>
+						</Text>
+					</Column>
+					<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'yellow' }}>
+						<Text>
 						Third Column
-					</Text>
-				</Column>
-				<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'green' }}>
-					<Text>
+						</Text>
+					</Column>
+					<Column sm={6} md={4} lg={3} style={{ backgroundColor: 'green' }}>
+						<Text>
 						Fourth Column
-					</Text>
-				</Column>
-			</Row>
-		</Container>
-	</View>
-))
+						</Text>
+					</Column>
+				</Row>
+			</Container>
+		</View>
+	))
 
 ;
 

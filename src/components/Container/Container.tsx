@@ -1,7 +1,7 @@
 import { View, ViewProps } from '@bluebase/components';
 import React from 'react';
-import { Theme } from '@bluebase/core';
-import { useLayout } from '@react-native-community/hooks'
+
+import { useLayout } from '@react-native-community/hooks';
 
 
 export interface ContainerStyles {}
@@ -13,18 +13,16 @@ export const Container = ({
 	styles,
 	...rest
 }: ContainerProps & { styles: ContainerStyles }) => {
-	
-	const { width, onLayout}  = useLayout()
-	
-	
-	
+
+	const { width, onLayout }  = useLayout();
+
+
 	return(
-		
+
 		<View onLayout={onLayout}>
-			
 			<View {...rest} style={[{ width: width, alignSelf: 'center' }, style]}/>
 		</View>
-	)
+	);
 };
 
-Container.defaultStyles = (_theme: Theme) => ({});
+

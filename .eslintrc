@@ -1,0 +1,5 @@
+{
+    "extends": [
+    	"@bluebase/eslint-config-bluebase/eslint.js"
+    ]
+}

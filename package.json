@@ -23,11 +23,12 @@
     }
   ],
   "scripts": {
+    "lint": "tslint -t stylish --project \"tsconfig.json\"",
+    "fix:lint": "eslint src --ext=jsx,ts,tsx --fix",
     "start": "yarn run storybook",
     "clean": "rimraf coverage dist tmp",
     "watch": "tsc -w -p tsconfig.json",
     "watch:test": "jest --watch",
-    "lint": "tslint -t stylish --project \"tsconfig.json\"",
     "info": "npm-scripts-info",
     "build": "run-s clean && run-p build:* && cp -r ./dist/src/* ./dist && rm -r ./dist/src && yarn run size",
     "build:main": "tsc -p tsconfig.json && babel ./src --out-dir dist --ignore \"**/__tests__\",\"**/__stories__\" --extensions \".ts,.tsx,.js,.jsx\"",
@@ -77,7 +78,10 @@
   },
   "dependencies": {
     "@bluebase/components": "^4.1.1",
+    "@bluebase/eslint-config-bluebase": "^1.0.3",
+    "@react-native-community/hooks": "^2.6.0",
     "deepmerge": "^3.2.0",
+    "eslint-plugin-react": "^7.20.5",
     "react-native": "^0.57.8",
     "react-native-dimensions-hooks": "^1.0.0",
     "tslib": "^1.9.3"

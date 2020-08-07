@@ -27,17 +27,17 @@ const stories = storiesOf('ResponsiveLayout', module);
 
 stories
 
-.add('Simple Example', () => (
-	<ResponsiveLayout
-		default={Yellow}
-		title="This is a default text"
-		xs={Green}
-		xsProps={{ title: 'This is XS screen' }}
-		sm={Red}
-		smProps={{ title: 'This is SM screen' }}
-		mdProps={{ title: 'This screen size shows default component, but responsive props' }}
-	/>
-))
+	.add('Simple Example', () => (
+		<ResponsiveLayout
+			default={Yellow}
+			title="This is a default text"
+			xs={Green}
+			xsProps={{ title: 'This is XS screen' }}
+			sm={Red}
+			smProps={{ title: 'This is SM screen' }}
+			mdProps={{ title: 'This screen size shows default component, but responsive props' }}
+		/>
+	))
 
 ;
 

@@ -1,4 +1,11 @@
-import { Column, Container, OrientationObserver, ResponsiveLayout, Row, ScreenSizeObserver } from './components';
+import {
+	Column,
+	Container,
+	OrientationObserver,
+	ResponsiveLayout,
+	Row,
+	ScreenSizeObserver,
+} from './components';
 import { createPlugin } from '@bluebase/core';
 
 export default createPlugin({

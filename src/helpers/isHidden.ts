@@ -12,7 +12,6 @@ export const isHidden = (
 	screenSize: SCREEN_SIZE,
 	props: HiddenOptions & { [key: string]: any }
 ) => {
-
 	switch (screenSize) {
 		case 'sm':
 			return !!props.smHidden;

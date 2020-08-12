@@ -223,7 +223,7 @@ test('Plugin should be correctly mounted', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column styles={styles as any} />
 
@@ -242,7 +242,7 @@ test('Column with size prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column size={12} styles={styles as any} />
 
@@ -261,7 +261,7 @@ test('Column with offset prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column offset={16} styles={styles as any} />
 
@@ -282,7 +282,7 @@ test('Column with xs prop', async () => {
 	};
 	Dimensions.get('window').width = 574;
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column xs={12} styles={styles as any} />
 
@@ -302,7 +302,7 @@ test('Column with xsOffset prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column xsOffset={12} styles={styles as any} />
 
@@ -322,7 +322,7 @@ test('Column with xsHidden prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column xsHidden={true} styles={styles as any} />
 
@@ -344,7 +344,7 @@ test('Column with sm prop', async () => {
 	Dimensions.get('window').width = 750;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp>
 
 			<Column sm={12} styles={styles as any} />
 
@@ -362,7 +362,7 @@ test('Column with smOffset prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column smOffset={12} styles={styles as any} />
 
@@ -380,7 +380,7 @@ test('Column with smHidden prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column smHidden={true} styles={styles as any} />
 
@@ -400,7 +400,7 @@ test('Column with md prop', async () => {
 	Dimensions.get('window').width = 990;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp>
 
 			<Column md={12} styles={styles as any} />
 
@@ -417,7 +417,7 @@ test('Column with mdOffset prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column mdOffset={12} styles={styles as any} />
 
@@ -434,7 +434,7 @@ test('Column with mdHidden prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column mdHidden={true} styles={styles as any} />
 
@@ -454,7 +454,7 @@ test('Column with lg prop', async () => {
 	Dimensions.get('window').width = 1100;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column lg={12} styles={styles as any} />
 
@@ -471,7 +471,7 @@ test('Column with lgOffset prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp>
 
 			<Column lgOffset={12} styles={styles as any} />
 
@@ -488,7 +488,7 @@ test('Column with lgHidden prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column lgHidden={true} styles={styles as any} />
 
@@ -508,7 +508,7 @@ test('Column with xl prop', async () => {
 	Dimensions.get('window').width = 1300;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp>
 
 			<Column xl={12} styles={styles as any} />
 
@@ -525,7 +525,7 @@ test('Column with xlOffset prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp>
 
 			<Column xlOffset={12} styles={styles as any} />
 
@@ -542,7 +542,7 @@ test('Column with xlHidden prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<Column xlHidden={true} styles={styles as any} />
 

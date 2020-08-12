@@ -33,7 +33,7 @@ export interface RowProps extends ViewProps {
 	justifyContent?: ViewStyle['justifyContent'];
 	nowrap?: boolean;
 	rowSize?: number;
-	layoutCalculation:string,
+	Dimension:'layout'|'screen',
 
 
 }
@@ -56,7 +56,7 @@ export const Row = (props: RowProps & { styles: RowStyles }) => {
 
 	const { width, onLayout }  = useLayout();
 
-	const layoutWidth =props.layoutCalculation==='screen'?screenSize:getScreenSizeFromWidth(width);
+	const layoutWidth =props.Dimension==='screen'?screenSize:getScreenSizeFromWidth(width);
 
 
 	if (isHidden(screenSize,props)) {

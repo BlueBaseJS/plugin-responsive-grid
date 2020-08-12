@@ -1,17 +1,20 @@
-import React from 'react';
-import { BlueBase , BlueBaseApp } from '@bluebase/core';
-import { OrientationObserver } from '../index';
 import 'mocha';
+import { BlueBase , BlueBaseApp } from '@bluebase/core';
+
+import { OrientationObserver } from '../index';
+import Plugin from '../../../index';
+import React from 'react';
+
 import { mount } from "enzyme";
 
 
-import Plugin from '../../../index';
+
 import { waitForElement } from 'enzyme-async-helpers';
 
 
-test('Plugin should be correctly registered', async () => {
+test('Plugin should be correctly registered', () => {
 	const BB = new BlueBase();
-	await BB.Plugins.register(Plugin);
+	 BB.Plugins.register(Plugin);
 
 	expect(BB.Plugins.has('plugin-responsive-grid')).toBeTruthy();
 });
@@ -19,7 +22,7 @@ test('Plugin should be correctly registered', async () => {
 
 
 
-test('Plugin should be correctly mounted', async () => {
+test('Plugin should be correctly mounted',() => {
 	// const BB = new BlueBase();
 	const Component = (props: any) => {
 		return (
@@ -31,12 +34,12 @@ test('Plugin should be correctly mounted', async () => {
 
 	const Comp = Component as any;
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<OrientationObserver>
 				{() => {
 					return (
-						<Comp isLandscape={true} />
+						<Comp isLandscape={true}   />
 
 					);
 				}}
@@ -44,10 +47,11 @@ test('Plugin should be correctly mounted', async () => {
 
 		</BlueBaseApp>
 	);
-	await waitForElement(wrapper, OrientationObserver);
+	 waitForElement(wrapper, OrientationObserver);
 	expect(wrapper.find('OrientationObserver')).toBeDefined();
-	wrapper.unmount();
 
 	expect(wrapper.find('OrientationObserver')).toEqual({});
+	expect(wrapper.find('OrientationObserver')).toEqual({});
+
 
 });

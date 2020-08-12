@@ -30,7 +30,7 @@ test('Plugin should be correctly mounted', async () => {
 
 	const Comp = Component as any;
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
 			<ScreenSizeObserver>
 				{() => {

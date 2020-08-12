@@ -1,6 +1,6 @@
 import { BlueBaseApp } from '@bluebase/core';
 import { Platform } from 'react-native';
-import Plugin from '../../../index';
+
 import React from 'react';
 import { Row }  from '../index';
 import  { mount } from  "enzyme";
@@ -16,9 +16,9 @@ test('Plugin should be correctly mounted', async () => {
 		smHidden:true
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
-	         <Row layoutCalculation="layout" rowSize={12}  styles={styles as any} />
+	         <Row Dimension="layout" rowSize={12}  styles={styles as any} />
 
 		</BlueBaseApp>
 	  );
@@ -35,9 +35,9 @@ test('Plugin should be correctly mounted', async () => {
 		smHidden:true
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
-	         <Row layoutCalculation="screen" rowSize={12}  styles={styles as any} />
+	         <Row Dimension="screen" rowSize={12}  styles={styles as any} />
 
 		</BlueBaseApp>
 	  );
@@ -57,9 +57,9 @@ test('Row with nowrap prop', async () => {
 	Platform.OS = 'web';
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
-			<Row layoutCalculation="layout" rowSize={12}  nowrap={true} styles={styles as any}/>
+			<Row Dimension="layout" rowSize={12}  nowrap={true} styles={styles as any}/>
 
 		</BlueBaseApp>
 	  );
@@ -77,9 +77,9 @@ test('Row with rowSize prop', async () => {
 	};
 	Platform.OS = 'android';
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
-			<Row layoutCalculation="layout"  rowSize={12} styles={styles as any}/>
+			<Row Dimension="layout"  rowSize={12} styles={styles as any}/>
 
 		</BlueBaseApp>
 	  );
@@ -98,9 +98,9 @@ test('Row with undefine rowSize prop', async () => {
 	};
 	Platform.OS = 'android';
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp>
 
-			<Row layoutCalculation="layout"   styles={styles as any}/>
+			<Row Dimension="layout"   styles={styles as any}/>
 
 		</BlueBaseApp>
 	  );
@@ -121,9 +121,9 @@ test('Row with justifyContent prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
-			<Row layoutCalculation="layout" rowSize={12} justifyContent={'flex-start'} styles={styles as any}/>
+			<Row Dimension="layout" rowSize={12} justifyContent={'flex-start'} styles={styles as any}/>
 
 		</BlueBaseApp>
 	  );
@@ -140,9 +140,9 @@ test('Row with alignItems prop', async () => {
 		}
 	};
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
+		<BlueBaseApp >
 
-			<Row  layoutCalculation="layout" rowSize={12} alignItems={'flex-start'} styles={styles as any}/>
+			<Row  Dimension="layout" rowSize={12} alignItems={'flex-start'} styles={styles as any}/>
 
 		</BlueBaseApp>
 	  );

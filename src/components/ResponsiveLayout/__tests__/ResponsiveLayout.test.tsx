@@ -1,373 +1,215 @@
-import React from 'react';
-import { ResponsiveLayout }  from '../ResponsiveLayout';
-import  { mount } from  "enzyme";
 import { BlueBaseApp } from '@bluebase/core';
 import { Dimensions } from 'react-native';
-import Plugin from '../../../index';
+// import Plugin from '../../../index';
+import React from 'react';
+import { ResponsiveLayout } from '../ResponsiveLayout';
+import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
-// test('Responsive Grid with default prop',() => {
-
-// 	try {
-
-// 		const wrapper = mount(
-// 			<BlueBaseApp plugins={[Plugin]}>
-
-// 				<ResponsiveLayout default={null as any}/>
-
-// 			</BlueBaseApp>
-// 		  );
-
-// 		waitForElement(wrapper, 'ScreenSizeObserve');
-// 	} catch (error) {
-// 		console.log("error", error);
-
-// 	}
-
-
-// 	//expect(wrapper.find('Text').last().text()).toBe('A "default" component is required in ResponsiveLayout.')
-// 	//expect(wrapper.props().children)
-// 	// console.log("testing",wrapper.find('Text'))
-
-// });
-
-// test('Responsive Grid with default prop', async () => {
-
-// 	const wrapper = mount(
-// 		<BlueBaseApp plugins={[Plugin]}>
-
-// 			<ResponsiveLayout default={"null" as any}/>
-
-// 		</BlueBaseApp>
-// 	  );
-
-// 	await waitForElement(wrapper, 'ScreenSizeObserver');
-// 	expect(wrapper.find('Text').last().text()).toBe('Could not resolve any of the following components: [string].')
-// 	wrapper.unmount()
-// });
-
-
-
-
 test('Responsive Grid with xs prop', async () => {
-
-	const mock=() => "xs";
+	const mock = () => 'xs';
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-			<ResponsiveLayout  xs={"sm"} default={mock as any}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout xs={'sm'} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
 
-	expect(wrapper.props().children.props.xs).toEqual("sm");
+	expect(wrapper.props().children.props.xs).toEqual('sm');
 	wrapper.unmount();
-
-
-
- 	});
+});
 
 test('Responsive Grid with xs prop', async () => {
+	const mock = () => 'sss';
 
-	const mock=() => "sss";
-
-		 Dimensions.get("window").width = 574;
+	Dimensions.get('window').width = 574;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-			<ResponsiveLayout  xs={() => "xs" as any} default={mock as any}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout xs={() => 'xs' as any} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
-
 
 	expect(wrapper.props().children.props.xs()).toEqual('xs');
 	wrapper.unmount();
-
-
-
 });
 
-
 test('Responsive Grid with xsprop prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-			<ResponsiveLayout xsProps={{ 'margin':8 }} default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout xsProps={{ margin: 8 }} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 
 	await waitForElement(wrapper, ResponsiveLayout);
 
-	expect(wrapper.props().children.props.xsProps).toEqual({ margin:8 });
+	expect(wrapper.props().children.props.xsProps).toEqual({ margin: 8 });
 	wrapper.unmount();
-
-
 });
 
-
-
 test('Responsive Grid with sm prop', async () => {
-	const mock=() => null;
-
-
+	const mock = () => null;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-			<ResponsiveLayout sm={"sm"}  default={mock}/>
+		<BlueBaseApp>
+			<ResponsiveLayout sm={'sm'} default={mock} />
 		</BlueBaseApp>
 	);
 
 	await waitForElement(wrapper, ResponsiveLayout);
 	expect(wrapper.props().children.props.sm).toEqual('sm');
 	wrapper.unmount();
-
 });
 
-
 test('Responsive Grid with sm prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 
-	Dimensions.get("window").width = 750;
-
+	Dimensions.get('window').width = 750;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-			<ResponsiveLayout sm={() => "sm" as any}  default={mock}/>
+		<BlueBaseApp>
+			<ResponsiveLayout sm={() => 'sm' as any} default={mock} />
 		</BlueBaseApp>
 	);
 
 	await waitForElement(wrapper, ResponsiveLayout);
-	expect(wrapper.props().children.props.sm()).toBe("sm");
+	expect(wrapper.props().children.props.sm()).toBe('sm');
 	wrapper.unmount();
-
 });
 test('Responsive Grid with smProps prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-			<ResponsiveLayout smProps={{ 'margin':8 }} default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout smProps={{ margin: 8 }} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 
 	await waitForElement(wrapper, ResponsiveLayout);
 
-
-	expect(wrapper.props().children.props.smProps).toEqual({ 'margin':8 });
+	expect(wrapper.props().children.props.smProps).toEqual({ margin: 8 });
 	wrapper.unmount();
-
 });
 
 test('Responsive Grid with md prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-
-			<ResponsiveLayout md={"md"}  default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout md={'md'} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 	await waitForElement(wrapper, ResponsiveLayout);
 	expect(wrapper.props().children.props.md).toEqual('md');
 	wrapper.unmount();
-
 });
 
 test('Responsive Grid with md prop', async () => {
-	const mock=() => null;
-	Dimensions.get("window").width = 990;
+	const mock = () => null;
+	Dimensions.get('window').width = 990;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-
-			<ResponsiveLayout md={() => "md" as any}  default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout md={() => 'md' as any} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 	await waitForElement(wrapper, ResponsiveLayout);
 	expect(wrapper.props().children.props.md()).toEqual('md');
 });
 
-// test('Responsive Grid with md prop', async () => {
-// 	const mock=()=> null
-// 	Dimensions.get("window").width = 990;
-
-// 	const wrapper = mount(
-// 		<BlueBaseApp plugins={[Plugin]}>
-
-
-// 			<ResponsiveLayout md={"md" }  default={mock}/>
-
-// 		</BlueBaseApp>
-// 	  );
-// await waitForElement(wrapper, Text);
-// expect(wrapper.find('Text').last().text()).toBe('Could not resolve any of the following components: [string].')
-// wrapper.unmount()
-
-// });
-
 test('Responsive Grid with mdProps prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-			<ResponsiveLayout mdProps={{ 'margin':8 }} default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout mdProps={{ margin: 8 }} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 
 	await waitForElement(wrapper, ResponsiveLayout);
 
-	expect(wrapper.props().children.props.mdProps).toEqual({ 'margin':8 });
+	expect(wrapper.props().children.props.mdProps).toEqual({ margin: 8 });
 	wrapper.unmount();
-
 });
 
 test('Responsive Grid with lg prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-
-			<ResponsiveLayout lg={"lg"}  default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout lg={'lg'} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 	await waitForElement(wrapper, ResponsiveLayout);
 	expect(wrapper.props().children.props.lg).toEqual('lg');
 	wrapper.unmount();
-
 });
 
 test('Responsive Grid with lg prop', async () => {
-	const mock=() => null;
-	Dimensions.get("window").width = 1100;
+	const mock = () => null;
+	Dimensions.get('window').width = 1100;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-
-			<ResponsiveLayout lg={() => "lg" as any}  default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout lg={() => 'lg' as any} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 	await waitForElement(wrapper, ResponsiveLayout);
 	expect(wrapper.props().children.props.lg()).toEqual('lg');
 });
 
-// test('Responsive Grid with lg prop', async () => {
-// 	const mock=()=> null
-// 	Dimensions.get("window").width = 1100;
-
-// 	const wrapper = mount(
-// 		<BlueBaseApp plugins={[Plugin]}>
-
-
-// 			<ResponsiveLayout lg={"12"}  default={mock}/>
-
-// 		</BlueBaseApp>
-// 	  );
-// await waitForElement(wrapper, Text);
-// expect(wrapper.find('Text').last().text()).toBe('Could not resolve any of the following components: [string].')
-// });
-
 test('Responsive Grid with lgProps prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-			<ResponsiveLayout lgProps={{ 'margin':8 }} default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout lgProps={{ margin: 8 }} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 
 	await waitForElement(wrapper, ResponsiveLayout);
 
-	expect(wrapper.props().children.props.lgProps).toEqual({ 'margin':8 });
+	expect(wrapper.props().children.props.lgProps).toEqual({ margin: 8 });
 	wrapper.unmount();
-
 });
 
 test('Responsive Grid with xl prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-
-			<ResponsiveLayout xl={"xl"}  default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout xl={'xl'} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 	await waitForElement(wrapper, ResponsiveLayout);
 	expect(wrapper.props().children.props.xl).toEqual('xl');
 });
 
 test('Responsive Grid with xl prop', async () => {
-	const mock=() => null;
-	Dimensions.get("window").width = 1300;
+	const mock = () => null;
+	Dimensions.get('window').width = 1300;
 
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-
-			<ResponsiveLayout xl={() => "xl" as any}  default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout xl={() => 'xl' as any} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 	await waitForElement(wrapper, ResponsiveLayout);
 	expect(wrapper.props().children.props.xl()).toEqual('xl');
 	wrapper.unmount();
-
 });
 
-// test('Responsive Grid with xl prop', async () => {
-// 	const mock=()=> null
-
-// 	const wrapper = mount(
-// 		<BlueBaseApp plugins={[Plugin]}>
-
-
-// 			<ResponsiveLayout xl={"12"}  default={mock}/>
-
-// 		</BlueBaseApp>
-// 	  );
-// await waitForElement(wrapper, Text);
-// expect(wrapper.find('Text').last().text()).toBe('Could not resolve any of the following components: [string].')
-// wrapper.unmount()
-// });
-
 test('Responsive Grid with xlProps prop', async () => {
-	const mock=() => null;
+	const mock = () => null;
 	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-
-			<ResponsiveLayout xlProps={{ 'margin':8 }} default={mock}/>
-
+		<BlueBaseApp>
+			<ResponsiveLayout xlProps={{ margin: 8 }} default={mock} />
 		</BlueBaseApp>
-	  );
+	);
 
 	await waitForElement(wrapper, ResponsiveLayout);
 
-	expect(wrapper.props().children.props.xlProps).toEqual({ 'margin':8 });
+	expect(wrapper.props().children.props.xlProps).toEqual({ margin: 8 });
 	wrapper.unmount();
-
 });
-
-
-
-
-

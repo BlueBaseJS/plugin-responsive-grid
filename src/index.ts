@@ -1,7 +1,4 @@
-import {
-	 BlueBase,
-	BootOptions,
-	createPlugin } from '@bluebase/core';
+import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 import {
 	Column,
 	Container,
@@ -10,6 +7,7 @@ import {
 	Row,
 	ScreenSizeObserver,
 } from './components';
+
 import { withDimensionProvider } from './withDimensions';
 
 export default createPlugin({
@@ -26,20 +24,15 @@ export default createPlugin({
 		Row,
 		ScreenSizeObserver,
 	},
+
 	filters: {
 		'bluebase.boot.end': (bootOptions: BootOptions, _ctx: any, BB: BlueBase) => {
-			BB.Components.addHocs('BlueBaseContent',withDimensionProvider);
-
+			BB.Components.addHocs('BlueBaseContent', withDimensionProvider);
 			return bootOptions;
-		}
+		},
 	},
 
-
 	defaultConfigs: {
-		'plugin.responsive-grid.rerender-on-change':false
-	}
-	// defaultConfigs:{
-	// 	'plugin.responsive-grid.rerender-on-change':false
-
-	// },
+		'plugin.responsive-grid.rerender-on-change': false,
+	},
 });

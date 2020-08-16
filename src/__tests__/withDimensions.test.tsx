@@ -1,12 +1,12 @@
-import { BlueBaseApp } from '@bluebase/core';
+import { DimensionObserver, withDimensionProvider } from '../withDimensions';
 
+import { BlueBaseApp } from '@bluebase/core';
+import Plugin from '../index';
 import React from 'react';
+import { Text } from 'react-native';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
-import { withDimensionProvider, DimensionObserver } from './withDimensions';
-import { Text } from 'react-native';
-import Plugin from './index';
 const Helloworld: any = () => {
 	return <Text>Hello</Text>;
 };
@@ -20,7 +20,7 @@ test('Plugin should be correctly registered', async () => {
 		</BlueBaseApp>
 	);
 
-	await waitForElement(wrapper, Helloworld);
+	await waitForElement(wrapper, ConditionalComponent);
 
 	expect(wrapper.find(DimensionObserver).exists()).toBe(true);
 	// expect(wrapper).toMatchSnapshot();

@@ -1,7 +1,6 @@
-import { BlueBase  } from '@bluebase/core';
+import { BlueBase } from '@bluebase/core';
 
 import Plugin from '../index';
-
 
 test('Plugin should be correctly registered', async () => {
 	const BB = new BlueBase();
@@ -9,7 +8,3 @@ test('Plugin should be correctly registered', async () => {
 
 	expect(BB.Plugins.has('plugin-responsive-grid')).toBeTruthy();
 });
-
-
-
-

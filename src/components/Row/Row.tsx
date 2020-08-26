@@ -2,23 +2,19 @@ import { Platform, StyleProp, ViewStyle } from 'react-native';
 import React, { createContext } from 'react';
 import { SCREEN_SIZE, View, ViewProps } from '@bluebase/components';
 import { Theme, useStyles } from '@bluebase/core';
-import { getScreenSizeFromWidth , isHidden } from '../../helpers';
+
+import { getScreenSizeFromWidth } from '../../helpers';
 import { useLayout } from '@react-native-community/hooks';
 import { useScreenSize } from '../../hooks';
-
-
-
 
 interface RowInterface {
 	rowsize: number;
 	rowwidth: SCREEN_SIZE;
-
 }
 const initialDimension: RowInterface = {
-	rowsize:12,
-	rowwidth:'lg'
+	rowsize: 12,
+	rowwidth: 'lg',
 };
-
 
 export const RowContext: React.Context<RowInterface> = createContext(initialDimension);
 
@@ -33,9 +29,7 @@ export interface RowProps extends ViewProps {
 	justifyContent?: ViewStyle['justifyContent'];
 	nowrap?: boolean;
 	rowSize?: number;
-	Dimension:'layout'|'screen',
-
-
+	Dimension: 'layout' | 'screen';
 }
 
 const defaultStyles = (theme: Theme): RowStyles => ({
@@ -52,21 +46,17 @@ export const Row = (props: RowProps & { styles: RowStyles }) => {
 	const styles = useStyles('Row', props, defaultStyles);
 	const screenSize = useScreenSize();
 
-	const rowsize=rowSize===undefined?12:rowSize;
+	const rowsize = rowSize === undefined ? 12 : rowSize;
 
-	const { width, onLayout }  = useLayout();
+	const { width, onLayout } = useLayout();
 
-	const layoutWidth =props.Dimension==='screen'?screenSize:getScreenSizeFromWidth(width);
+	const layoutWidth = props.Dimension === 'screen' ? screenSize : getScreenSizeFromWidth(width);
 
+	// if (isHidden(screenSize, props)) {
+	// 	return null;
+	// }
 
-	if (isHidden(screenSize,props)) {
-		return null;
-	}
-
-
-
-	const rowDimension={ rowsize:rowsize,rowwidth:layoutWidth };
-
+	const rowDimension = { rowsize: rowsize, rowwidth: layoutWidth };
 
 	const stylesheet: Array<StyleProp<ViewStyle>> = [
 		style,
@@ -89,6 +79,5 @@ export const Row = (props: RowProps & { styles: RowStyles }) => {
 };
 
 Row.defaultProps = {
-	rowDimension:initialDimension
+	rowDimension: initialDimension,
 };
-

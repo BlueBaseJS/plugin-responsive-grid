@@ -4,7 +4,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { renderHook } from '@testing-library/react-hooks';
 import { useScreenSize } from '../../../hooks/useScreenSize';
-//import Plugin from '../../../index';
+// import Plugin from '../../../index';
 import { waitForElement } from 'enzyme-async-helpers';
 // import { View } from '@bluebase/core/dist/getComponent';
 

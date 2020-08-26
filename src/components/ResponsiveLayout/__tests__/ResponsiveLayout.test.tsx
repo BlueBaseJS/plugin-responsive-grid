@@ -22,12 +22,13 @@ test('Responsive Grid with xs prop', async () => {
 
 test('Responsive Grid with xs prop', async () => {
 	const mock = () => 'sss';
+	const xs = () => 'xs';
 
 	Dimensions.get('window').width = 574;
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout xs={() => 'xs' as any} default={mock as any} />
+			<ResponsiveLayout xs={xs as any} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
@@ -41,7 +42,7 @@ test('Responsive Grid with xsprop prop', async () => {
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout xsProps={{ margin: 8 }} default={mock} />
+			<ResponsiveLayout xsProps={{ margin: 8 }} default={mock as any} />
 		</BlueBaseApp>
 	);
 
@@ -56,7 +57,7 @@ test('Responsive Grid with sm prop', async () => {
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout sm={'sm'} default={mock} />
+			<ResponsiveLayout sm={'sm'} default={mock as any} />
 		</BlueBaseApp>
 	);
 
@@ -67,12 +68,12 @@ test('Responsive Grid with sm prop', async () => {
 
 test('Responsive Grid with sm prop', async () => {
 	const mock = () => null;
-
+	const sm = () => 'sm';
 	Dimensions.get('window').width = 750;
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout sm={() => 'sm' as any} default={mock} />
+			<ResponsiveLayout sm={sm as any} default={mock as any} />
 		</BlueBaseApp>
 	);
 
@@ -84,7 +85,7 @@ test('Responsive Grid with smProps prop', async () => {
 	const mock = () => null;
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout smProps={{ margin: 8 }} default={mock} />
+			<ResponsiveLayout smProps={{ margin: 8 }} default={mock as any} />
 		</BlueBaseApp>
 	);
 
@@ -99,7 +100,7 @@ test('Responsive Grid with md prop', async () => {
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout md={'md'} default={mock} />
+			<ResponsiveLayout md={'md'} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
@@ -109,11 +110,12 @@ test('Responsive Grid with md prop', async () => {
 
 test('Responsive Grid with md prop', async () => {
 	const mock = () => null;
+	const md = () => 'md';
 	Dimensions.get('window').width = 990;
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout md={() => 'md' as any} default={mock} />
+			<ResponsiveLayout md={md as any} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
@@ -124,7 +126,7 @@ test('Responsive Grid with mdProps prop', async () => {
 	const mock = () => null;
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout mdProps={{ margin: 8 }} default={mock} />
+			<ResponsiveLayout mdProps={{ margin: 8 }} default={mock as any} />
 		</BlueBaseApp>
 	);
 
@@ -139,7 +141,7 @@ test('Responsive Grid with lg prop', async () => {
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout lg={'lg'} default={mock} />
+			<ResponsiveLayout lg={'lg'} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
@@ -149,11 +151,12 @@ test('Responsive Grid with lg prop', async () => {
 
 test('Responsive Grid with lg prop', async () => {
 	const mock = () => null;
+	const lg = () => 'lg';
 	Dimensions.get('window').width = 1100;
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout lg={() => 'lg' as any} default={mock} />
+			<ResponsiveLayout lg={lg as any} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
@@ -164,7 +167,7 @@ test('Responsive Grid with lgProps prop', async () => {
 	const mock = () => null;
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout lgProps={{ margin: 8 }} default={mock} />
+			<ResponsiveLayout lgProps={{ margin: 8 }} default={mock as any} />
 		</BlueBaseApp>
 	);
 
@@ -179,7 +182,7 @@ test('Responsive Grid with xl prop', async () => {
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout xl={'xl'} default={mock} />
+			<ResponsiveLayout xl={'xl'} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
@@ -188,11 +191,12 @@ test('Responsive Grid with xl prop', async () => {
 
 test('Responsive Grid with xl prop', async () => {
 	const mock = () => null;
+	const xl = () => 'xl';
 	Dimensions.get('window').width = 1300;
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout xl={() => 'xl' as any} default={mock} />
+			<ResponsiveLayout xl={xl as any} default={mock as any} />
 		</BlueBaseApp>
 	);
 	await waitForElement(wrapper, ResponsiveLayout);
@@ -204,7 +208,7 @@ test('Responsive Grid with xlProps prop', async () => {
 	const mock = () => null;
 	const wrapper = mount(
 		<BlueBaseApp>
-			<ResponsiveLayout xlProps={{ margin: 8 }} default={mock} />
+			<ResponsiveLayout xlProps={{ margin: 8 }} default={mock as any} />
 		</BlueBaseApp>
 	);
 

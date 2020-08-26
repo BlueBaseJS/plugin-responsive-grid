@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react';
 import { useConfig } from '@bluebase/core';
 import { useScreenSize } from './hooks';

@@ -18,7 +18,7 @@ test('Plugin should be correctly mounted', async () => {
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<Container MaxSize="md" Dimension="screen" styles={styles as any} />
+			<Container maxSize="md" dimension="screen" styles={styles as any} />
 		</BlueBaseApp>
 	);
 
@@ -36,7 +36,7 @@ test('Plugin should be correctly mounted with dimension prop', async () => {
 
 	const wrapper = mount(
 		<BlueBaseApp>
-			<Container MaxSize="xs" Dimension="layout" styles={styles as any} />
+			<Container maxSize="xs" dimension="layout" styles={styles as any} />
 		</BlueBaseApp>
 	);
 

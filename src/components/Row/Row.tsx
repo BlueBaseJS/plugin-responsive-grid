@@ -29,7 +29,7 @@ export interface RowProps extends ViewProps {
 	justifyContent?: ViewStyle['justifyContent'];
 	nowrap?: boolean;
 	rowSize?: number;
-	Dimension: 'layout' | 'screen';
+	dimension: 'layout' | 'screen';
 }
 
 const defaultStyles = (theme: Theme): RowStyles => ({
@@ -50,7 +50,7 @@ export const Row = (props: RowProps & { styles: RowStyles }) => {
 
 	const { width, onLayout } = useLayout();
 
-	const layoutWidth = props.Dimension === 'screen' ? screenSize : getScreenSizeFromWidth(width);
+	const layoutWidth = props.dimension === 'screen' ? screenSize : getScreenSizeFromWidth(width);
 
 	// if (isHidden(screenSize, props)) {
 	// 	return null;

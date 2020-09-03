@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import 'jest-enzyme';
 import 'react-native';
 import Adapter from 'enzyme-adapter-react-16';

@@ -8,14 +8,14 @@ import { useScreenSize } from '../../hooks';
 export interface ContainerStyles {}
 
 export interface ContainerProps extends ViewProps {
-	Dimension: 'layout' | 'screen';
-	MaxSize: SCREEN_SIZE;
+	dimension: 'layout' | 'screen';
+	maxSize: SCREEN_SIZE;
 	styles: any;
 }
 
 export const Container = ({
-	Dimension,
-	MaxSize,
+	dimension,
+	maxSize,
 	style,
 	styles,
 	...rest
@@ -24,13 +24,11 @@ export const Container = ({
 
 	const { width, onLayout } = useLayout();
 
-	let containerWidth = Dimension === 'layout' ? width : MAX_CONTAINER_WIDTH[screenSize];
+	let containerWidth = dimension === 'layout' ? width : MAX_CONTAINER_WIDTH[screenSize];
 
-	const maxWidth = MAX_CONTAINER_WIDTH[MaxSize];
+	const maxWidth = MAX_CONTAINER_WIDTH[maxSize];
 
-	if (maxWidth === '100%') {
-		containerWidth = maxWidth;
-	} else if (maxWidth < containerWidth) {
+	if (maxWidth === '100%' || maxWidth < containerWidth) {
 		containerWidth = maxWidth;
 	}
 

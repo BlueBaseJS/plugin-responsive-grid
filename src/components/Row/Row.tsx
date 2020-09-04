@@ -29,7 +29,7 @@ export interface RowProps extends ViewProps {
 	justifyContent?: ViewStyle['justifyContent'];
 	nowrap?: boolean;
 	rowSize?: number;
-	dimension: 'layout' | 'screen';
+	dimension?: 'layout' | 'screen';
 }
 
 const defaultStyles = (theme: Theme): RowStyles => ({

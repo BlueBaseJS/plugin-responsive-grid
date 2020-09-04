@@ -80,4 +80,7 @@ export const Row = (props: RowProps & { styles: RowStyles }) => {
 
 Row.defaultProps = {
 	rowDimension: initialDimension,
+	dimension:'screen'
 };
+
+

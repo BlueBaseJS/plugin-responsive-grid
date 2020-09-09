@@ -5,12 +5,12 @@ import React from 'react';
 import { useLayout } from '@react-native-community/hooks';
 import { useScreenSize } from '../../hooks';
 
-export interface ContainerStyles {}
+export interface ContainerStylesProps {}
 
 export interface ContainerProps extends ViewProps {
 	dimension?: 'layout' | 'screen';
 	maxSize?: SCREEN_SIZE;
-	styles: any;
+	styles: ContainerStylesProps;
 }
 
 export const Container = ({
@@ -19,7 +19,7 @@ export const Container = ({
 	style,
 	styles,
 	...rest
-}: ContainerProps & { styles: ContainerStyles }) => {
+}: ContainerProps & { styles: ContainerStylesProps }) => {
 	const screenSize = useScreenSize();
 
 	const { width, onLayout } = useLayout();

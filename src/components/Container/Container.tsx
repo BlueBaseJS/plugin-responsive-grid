@@ -1,33 +1,44 @@
-import { StyleProp, ViewStyle } from 'react-native';
-import { View, ViewProps } from '@bluebase/components';
+import { SCREEN_SIZE, View, ViewProps } from '@bluebase/components';
+
 import { MAX_CONTAINER_WIDTH } from '../../constants';
 import React from 'react';
-import { ScreenSizeConsumer } from '../ScreenSize';
-import { Theme } from '@bluebase/core';
+import { useLayout } from '@react-native-community/hooks';
+import { useScreenSize } from '../../hooks';
 
-export interface ContainerStyles {
-	paddingHorizontalXS: StyleProp<ViewStyle>;
+export interface ContainerStylesProps {}
+
+export interface ContainerProps extends ViewProps {
+	dimension?: 'layout' | 'screen';
+	maxSize?: SCREEN_SIZE;
+	styles: ContainerStylesProps;
 }
 
-export interface ContainerProps extends ViewProps {}
+export const Container = ({
+	dimension,
+	maxSize,
+	style,
+	styles,
+	...rest
+}: ContainerProps & { styles: ContainerStylesProps }) => {
+	const screenSize = useScreenSize();
 
-export const Container = ({ style, styles, ...rest }: ContainerProps & { styles: ContainerStyles }) => (
-	<ScreenSizeConsumer>
-	{(size) => (
-		<View
-			{...rest}
-			style={[
-				{ width: MAX_CONTAINER_WIDTH[size], alignSelf: 'center' },
-				size === 'xs' && styles.paddingHorizontalXS,
-				style,
-			]}
-		/>
-	)}
-	</ScreenSizeConsumer>
-);
+	const { width, onLayout } = useLayout();
 
-Container.defaultStyles = (theme: Theme) => ({
-	paddingHorizontalXS: {
-		paddingHorizontal: theme.spacing.unit * 2
+	let containerWidth = dimension === 'layout' ? width : MAX_CONTAINER_WIDTH[screenSize];
+
+	if(maxSize){
+		const maxWidth = MAX_CONTAINER_WIDTH[maxSize];
+		if (maxWidth === '100%' || maxWidth < containerWidth) {
+			containerWidth = maxWidth;
+		}
 	}
-});
+
+
+
+
+	return (
+		<View onLayout={onLayout}>
+			<View {...rest} style={[{ width: containerWidth, alignSelf: 'center' }, style]} />
+		</View>
+	);
+};

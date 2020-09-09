@@ -1,4 +1,5 @@
-import { BREAKPOINTS, SCREEN_SIZE } from '../constants';
+import { BREAKPOINTS } from '../constants';
+import { SCREEN_SIZE } from '@bluebase/components';
 
 export const getScreenSizeFromWidth = (width: number): SCREEN_SIZE => {
 	if (width < BREAKPOINTS.xs) {

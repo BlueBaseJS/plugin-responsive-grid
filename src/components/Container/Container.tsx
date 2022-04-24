@@ -7,7 +7,7 @@ export interface ContainerProps extends ViewProps {}
 
 export const Container = ({ style, ...rest }: ContainerProps) => (
 	<ScreenSizeConsumer>
-	{(size) => (<View {...rest} style={[{ width: MAX_CONTAINER_WIDTH[size], alignSelf: 'center' }, style]} />)}
+	{(size) => (<View {...rest} style={[{ width: MAX_CONTAINER_WIDTH[size], alignSelf: 'center', flexGrow: 1 }, style]} />)}
 	</ScreenSizeConsumer>
 );
 

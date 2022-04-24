@@ -110,13 +110,13 @@ export const Column = ({ style, ...rest }: ColumnProps) => (
 			// const styles = _styles as ColumnStyles;
 
 			const stylesheet: Array<StyleProp<ViewStyle>> = [
-				style,
 				// styles.root,
 				{
 					flexDirection: 'column',
 					marginLeft,
 					width,
-				}
+				},
+				style,
 			];
 
 			return (

@@ -1,9 +1,10 @@
-import { StyleProp, ViewStyle } from 'react-native';
 import { View, ViewProps } from '@bluebase/components';
-import React from 'react';
-import { RowConsumer } from '../Row';
+import React, { useContext } from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
+
 import { SCREEN_SIZE } from '../../constants';
-import { ScreenSizeConsumer } from '../ScreenSize';
+import { useScreenSize } from '../../useScreenSize';
+import { RowContext } from '../Row';
 // import { Theme } from '@bluebase/core';
 
 // export interface ColumnStyles {
@@ -99,34 +100,28 @@ export interface ColumnProps extends ViewProps {
 	// styles?: Partial<ColumnStyles>;
 }
 
-export const Column = ({ style, ...rest }: ColumnProps) => (
-	<ScreenSizeConsumer>
-	{(screenSize) => (
-		<RowConsumer>
-		{(rowSize) => {
+export const Column = ({ style, ...rest }: ColumnProps) => {
+	const screenSize = useScreenSize();
+	const rowSize = useContext(RowContext);
 
-			const width = getColumnWidth(screenSize, rowSize, rest);
-			const marginLeft = getColumnOffset(screenSize, rowSize, rest);
-			// const styles = _styles as ColumnStyles;
+	const width = getColumnWidth(screenSize, rowSize, rest);
+	const marginLeft = getColumnOffset(screenSize, rowSize, rest);
+	// const styles = _styles as ColumnStyles;
 
-			const stylesheet: Array<StyleProp<ViewStyle>> = [
-				// styles.root,
-				{
-					flexDirection: 'column',
-					marginLeft,
-					width,
-				},
-				style,
-			];
+	const stylesheet: Array<StyleProp<ViewStyle>> = [
+		// styles.root,
+		{
+			flexDirection: 'column',
+			marginLeft,
+			width,
+		},
+		style,
+	];
 
-			return (
-				<View {...rest} style={stylesheet} />
-			);
-		}}
-		</RowConsumer>
-	)}
-	</ScreenSizeConsumer>
-);
+	return (
+		<View {...rest} style={stylesheet} />
+	);
+};
 
 Column.displayName = 'Column';
 
@@ -137,7 +132,7 @@ Column.displayName = 'Column';
 // 	}
 // });
 
-const toPercent = (num: number) => (num * 100) + '%';
+const toPercent = (num: number) => `${num * 100 }%`;
 
 const getColumnWidth = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnProps) => {
 	switch (screenSize) {

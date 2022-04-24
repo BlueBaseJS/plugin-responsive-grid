@@ -1,14 +1,28 @@
 import { View, ViewProps } from '@bluebase/components';
-import { MAX_CONTAINER_WIDTH } from '../../constants';
 import React from 'react';
-import { ScreenSizeConsumer } from '../ScreenSize';
+
+import { MAX_CONTAINER_WIDTH } from '../../constants';
+import { useScreenSize } from '../../useScreenSize';
 
 export interface ContainerProps extends ViewProps {}
 
-export const Container = ({ style, ...rest }: ContainerProps) => (
-	<ScreenSizeConsumer>
-	{(size) => (<View {...rest} style={[{ width: MAX_CONTAINER_WIDTH[size], alignSelf: 'center', flexGrow: 1 }, style]} />)}
-	</ScreenSizeConsumer>
-);
+export const Container = ({ style, ...rest }: ContainerProps) => {
+
+	const screenSize = useScreenSize();
+
+	return (
+		<View
+			{...rest}
+			style={[
+				{
+					width: MAX_CONTAINER_WIDTH[screenSize],
+					alignSelf: 'center',
+					flexGrow: 1
+				},
+				style
+			]}
+		/>
+	);
+};
 
 Container.displayName = 'Container';

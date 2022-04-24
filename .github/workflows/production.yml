@@ -32,7 +32,7 @@ jobs:
         run: yarn install
 
       - name: Tests
-        run: yarn test
+        run: yarn test:lint
 
       - name: Build
         run: yarn build

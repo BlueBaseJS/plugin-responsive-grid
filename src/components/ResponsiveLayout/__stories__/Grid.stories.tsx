@@ -1,8 +1,9 @@
-import { Text, View, ViewProps } from 'react-native';
-import React from 'react';
-import { ResponsiveLayoutProps } from '../';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
+import { Text, View, ViewProps } from 'react-native';
+
+import { ResponsiveLayoutProps } from '../';
 
 const ResponsiveLayout = getComponent<ResponsiveLayoutProps>('ResponsiveLayout');
 
@@ -27,17 +28,17 @@ const stories = storiesOf('ResponsiveLayout', module);
 
 stories
 
-.add('Simple Example', () => (
-	<ResponsiveLayout
-		default={Yellow}
-		title="This is a default text"
-		xs={Green}
-		xsProps={{ title: 'This is XS screen' }}
-		sm={Red}
-		smProps={{ title: 'This is SM screen' }}
-		mdProps={{ title: 'This screen size shows default component, but responsive props' }}
-	/>
-))
+	.add('Simple Example', () => (
+		<ResponsiveLayout
+			default={Yellow}
+			title="This is a default text"
+			xs={Green}
+			xsProps={{ title: 'This is XS screen' }}
+			sm={Red}
+			smProps={{ title: 'This is SM screen' }}
+			mdProps={{ title: 'This screen size shows default component, but responsive props' }}
+		/>
+	))
 
 ;
 

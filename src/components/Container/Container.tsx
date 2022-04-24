@@ -10,3 +10,5 @@ export const Container = ({ style, ...rest }: ContainerProps) => (
 	{(size) => (<View {...rest} style={[{ width: MAX_CONTAINER_WIDTH[size], alignSelf: 'center' }, style]} />)}
 	</ScreenSizeConsumer>
 );
+
+Container.displayName = 'Container';

@@ -28,14 +28,14 @@ export const Row = (props: RowProps) => (
 			const { alignItems, justifyContent, nowrap, rowSize, style, ...rest } = props;
 
 			const styles: Array<StyleProp<ViewStyle>> = [
+				style,
 				{
 					alignItems,
 					flexDirection: 'row',
 					flexWrap: nowrap ? 'nowrap' : 'wrap',
 					justifyContent,
 				},
-				Platform.OS === 'web' ? { overflow: 'visible' } : {},
-				style,
+				Platform.OS === 'web' ? { overflow: 'visible' } : {}
 			];
 
 			return (

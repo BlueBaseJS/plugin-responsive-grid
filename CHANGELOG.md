@@ -1,3 +1,9 @@
+# [1.1.0](https://github.com/BlueBaseJS/plugin-responsive-grid/compare/v1.0.0...v1.1.0) (2023-09-09)
+
+### Features
+
+*   Expo 49 ([b599789](https://github.com/BlueBaseJS/plugin-responsive-grid/commit/b599789d44dd26627eef827f23ab6387d2d22de9))
+
 # 1.0.0 (2022-04-24)
 
 ### Bug Fixes

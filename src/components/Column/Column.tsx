@@ -132,7 +132,7 @@ Column.displayName = 'Column';
 // 	}
 // });
 
-const toPercent = (num: number) => `${num * 100 }%`;
+const toPercent = (num: number): `${number}%` => `${num * 100 }%`;
 
 const getColumnWidth = (screenSize: SCREEN_SIZE, rowSize: number, props: ColumnProps) => {
 	switch (screenSize) {
